@@ -15,16 +15,12 @@ gem 'tire' # for search
 gem 'omniauth-facebook'
 gem 'bitly'
 gem 'postmark-rails','~> 0.4.1'
-
 gem 'delayed_job'
 gem 'delayed_job_mongoid'
-
 gem 'mongoid_slug'
-
 gem 'carrierwave-mongoid', require: 'carrierwave/mongoid'
 gem 'carrierwave_backgrounder'
 gem 'fog'
-
 gem 'taglib-ruby', require: 'taglib', git: 'https://github.com/rud1r055/taglib-ruby.git'
 gem 'meta-tags', require: 'meta_tags'
 
@@ -49,7 +45,7 @@ end
 
 group :development do
 	gem 'forgery', '~> 0.3.12'
-	gem 'rb-fsevent', require: false if RUBY_PLATFORM =~ /darwin/i
+	gem 'rb-fsevent'
 	gem 'growl_notify'
   gem 'guard'
 	gem 'guard-livereload'
