@@ -9,7 +9,13 @@ gem 'bson_ext', '~> 1.5'
 gem 'mongoid', '~> 2.4'
 gem 'mongoid_session_store'
 gem 'ejs'
-gem 'backbone-support', :path => '/Volumes/Secondary/Users/eric/Projects/butter/Mixture.fm/development/backbone-support'
+
+if Rails.env.development? && Rails.root =~ /eric/i
+	gem 'backbone-support', path: '/Volumes/Secondary/Users/eric/Projects/butter/Mixture.fm/development/backbone-support'
+else
+	gem 'backbone-support', git: 'git@github.com:erickreutz/backbone-support.git'
+end
+
 gem 'kaminari'
 gem 'tire' # for search
 gem 'omniauth-facebook'
@@ -21,12 +27,12 @@ gem 'delayed_job_mongoid'
 
 gem 'mongoid_slug'
 
-gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+gem 'carrierwave-mongoid', require: 'carrierwave/mongoid'
 gem 'carrierwave_backgrounder'
 gem 'fog'
 
-gem 'taglib-ruby', :require => 'taglib', :git => 'https://github.com/rud1r055/taglib-ruby.git'
-gem 'meta-tags', :require => 'meta_tags'
+gem 'taglib-ruby', require: 'taglib', git: 'https://github.com/rud1r055/taglib-ruby.git'
+gem 'meta-tags', require: 'meta_tags'
 
 # For admin section
 gem 'twitter-bootstrap-rails', '~> 2.0.1'
@@ -38,7 +44,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 	gem 'uglifier', '>= 1.0.3'
 	gem 'less-rails'
-	
+
 	# Admin section
 	gem 'jquery-rails'
 end
@@ -49,7 +55,7 @@ end
 
 group :development do
 	gem 'forgery', '~> 0.3.12'
-	gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+	gem 'rb-fsevent', require: false if RUBY_PLATFORM =~ /darwin/i
 	gem 'growl_notify'
   gem 'guard'
 	gem 'guard-livereload'
@@ -61,7 +67,7 @@ group :test do
 	gem 'cucumber-rails'
 	gem 'database_cleaner'
 	gem 'launchy'
-	gem 'rack-test', :require => 'rack/test'
+	gem 'rack-test', require: 'rack/test'
 	gem 'rr'
 	gem 'shoulda-context'
 	gem 'shoulda-matchers'
