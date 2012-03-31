@@ -40,6 +40,7 @@ group :assets do
 end
 
 group :production do
+	gem 'cmake-heroku', git: 'git://github.com/pjkelly/cmake-heroku.git'
 	gem 'taglib-heroku', git: 'git://github.com/pjkelly/taglib-heroku.git'
 end
 
