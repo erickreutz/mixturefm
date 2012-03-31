@@ -9,13 +9,7 @@ gem 'bson_ext', '~> 1.5'
 gem 'mongoid', '~> 2.4'
 gem 'mongoid_session_store'
 gem 'ejs'
-
-if Rails.env.development? && Rails.root =~ /eric/i
-	gem 'backbone-support', path: '/Volumes/Secondary/Users/eric/Projects/butter/Mixture.fm/development/backbone-support'
-else
-	gem 'backbone-support', git: 'git@github.com:erickreutz/backbone-support.git'
-end
-
+gem 'backbone-support', git: 'git@github.com:erickreutz/backbone-support.git'
 gem 'kaminari'
 gem 'tire' # for search
 gem 'omniauth-facebook'
