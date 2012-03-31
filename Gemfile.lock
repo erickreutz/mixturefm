@@ -1,0 +1,328 @@
+GIT
+  remote: https://github.com/rud1r055/taglib-ruby.git
+  revision: 3ab1b7ca7a06414f7c68f7f100eb2f8d627e14a2
+  specs:
+    taglib-ruby (0.3.1)
+
+PATH
+  remote: /Volumes/Secondary/Users/eric/Projects/butter/Mixture.fm/development/backbone-support
+  specs:
+    backbone-support (0.2.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    actionmailer (3.2.0)
+      actionpack (= 3.2.0)
+      mail (~> 2.4.0)
+    actionpack (3.2.0)
+      activemodel (= 3.2.0)
+      activesupport (= 3.2.0)
+      builder (~> 3.0.0)
+      erubis (~> 2.7.0)
+      journey (~> 1.0.0)
+      rack (~> 1.4.0)
+      rack-cache (~> 1.1)
+      rack-test (~> 0.6.1)
+      sprockets (~> 2.1.2)
+    activemodel (3.2.0)
+      activesupport (= 3.2.0)
+      builder (~> 3.0.0)
+    activerecord (3.2.0)
+      activemodel (= 3.2.0)
+      activesupport (= 3.2.0)
+      arel (~> 3.0.0)
+      tzinfo (~> 0.3.29)
+    activeresource (3.2.0)
+      activemodel (= 3.2.0)
+      activesupport (= 3.2.0)
+    activesupport (3.2.0)
+      i18n (~> 0.6)
+      multi_json (~> 1.0)
+    addressable (2.2.6)
+    arel (3.0.0)
+    bitly (0.7.0)
+      crack (>= 0.1.4)
+      httparty (>= 0.7.6)
+      oauth2 (~> 0.5.0)
+    bson (1.5.2)
+    bson_ext (1.5.2)
+      bson (= 1.5.2)
+    builder (3.0.0)
+    capybara (1.1.2)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      selenium-webdriver (~> 2.0)
+      xpath (~> 0.1.4)
+    carrierwave (0.5.8)
+      activesupport (~> 3.0)
+    carrierwave-mongoid (0.1.3)
+      carrierwave (>= 0.5.6)
+      mongoid (~> 2.1)
+    carrierwave_backgrounder (0.0.6)
+      carrierwave (~> 0.5)
+    childprocess (0.3.0)
+      ffi (~> 1.0.6)
+    coffee-rails (3.2.1)
+      coffee-script (>= 2.2.0)
+      railties (~> 3.2.0.beta)
+    coffee-script (2.2.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.2.0)
+    commonjs (0.2.0)
+      therubyracer (~> 0.9.9)
+    crack (0.3.1)
+    cucumber (1.1.4)
+      builder (>= 2.1.2)
+      diff-lcs (>= 1.1.2)
+      gherkin (~> 2.7.1)
+      json (>= 1.4.6)
+      term-ansicolor (>= 1.0.6)
+    cucumber-rails (1.2.1)
+      capybara (>= 1.1.2)
+      cucumber (>= 1.1.3)
+      nokogiri (>= 1.5.0)
+    database_cleaner (0.7.1)
+    delayed_job (3.0.1)
+      activesupport (~> 3.0)
+    delayed_job_mongoid (1.0.8)
+      delayed_job (~> 3.0.0)
+      mongoid (>= 2.0)
+    diff-lcs (1.1.3)
+    ejs (1.0.0)
+    em-websocket (0.3.6)
+      addressable (>= 2.1.1)
+      eventmachine (>= 0.12.9)
+    erubis (2.7.0)
+    eventmachine (0.12.10)
+    excon (0.9.5)
+    execjs (1.3.0)
+      multi_json (~> 1.0)
+    fabrication (1.2.0)
+    faraday (0.7.6)
+      addressable (~> 2.2)
+      multipart-post (~> 1.1)
+      rack (~> 1.1)
+    ffi (1.0.11)
+    fog (1.1.2)
+      builder
+      excon (~> 0.9.0)
+      formatador (~> 0.2.0)
+      mime-types
+      multi_json (~> 1.0.3)
+      net-scp (~> 1.0.4)
+      net-ssh (>= 2.1.3)
+      nokogiri (~> 1.5.0)
+      ruby-hmac
+    forgery (0.3.12)
+      nokogiri (~> 1.4)
+    formatador (0.2.1)
+    gherkin (2.7.4)
+      json (>= 1.4.6)
+    growl_notify (0.0.3)
+      rb-appscript
+    guard (1.0.0)
+      ffi (>= 0.5.0)
+      thor (~> 0.14.6)
+    guard-livereload (0.4.0)
+      em-websocket (>= 0.2.0)
+      guard (>= 0.10.0)
+      multi_json (~> 1.0.3)
+    hashie (1.2.0)
+    hike (1.2.1)
+    hpricot (0.8.6)
+    httparty (0.8.1)
+      multi_json
+      multi_xml
+    i18n (0.6.0)
+    journey (1.0.0)
+    jquery-rails (2.0.0)
+      railties (>= 3.2.0.beta, < 5.0)
+      thor (~> 0.14)
+    json (1.6.5)
+    kaminari (0.13.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      railties (>= 3.0.0)
+    launchy (2.0.5)
+      addressable (~> 2.2.6)
+    less (2.0.9)
+      commonjs (~> 0.2.0)
+      therubyracer (~> 0.9.9)
+    less-rails (2.1.5)
+      actionpack (>= 3.1)
+      less (~> 2.0.7)
+    libv8 (3.3.10.4)
+    mail (2.4.1)
+      i18n (>= 0.4.0)
+      mime-types (~> 1.16)
+      treetop (~> 1.4.8)
+    meta-tags (1.2.4)
+      actionpack
+    mime-types (1.17.2)
+    mongo (1.5.2)
+      bson (= 1.5.2)
+    mongoid (2.4.2)
+      activemodel (~> 3.1)
+      mongo (~> 1.3)
+      tzinfo (~> 0.3.22)
+    mongoid_session_store (2.1.0)
+      mongoid (~> 2.3)
+      rails (~> 3.0)
+    mongoid_slug (0.9.0)
+      mongoid (~> 2.0)
+      stringex (~> 1.3)
+    multi_json (1.0.4)
+    multi_xml (0.4.1)
+    multipart-post (1.1.4)
+    net-scp (1.0.4)
+      net-ssh (>= 1.99.1)
+    net-ssh (2.3.0)
+    nokogiri (1.5.0)
+    oauth2 (0.5.2)
+      faraday (~> 0.7)
+      multi_json (~> 1.0)
+    omniauth (1.0.2)
+      hashie (~> 1.2)
+      rack
+    omniauth-facebook (1.2.0)
+      omniauth-oauth2 (~> 1.0.0)
+    omniauth-oauth2 (1.0.0)
+      oauth2 (~> 0.5.0)
+      omniauth (~> 1.0)
+    polyglot (0.3.3)
+    postmark (0.9.10)
+    postmark-rails (0.4.1)
+      actionmailer
+      postmark (>= 0.9.0)
+      rake
+    rack (1.4.1)
+    rack-cache (1.1)
+      rack (>= 0.4)
+    rack-ssl (1.3.2)
+      rack
+    rack-test (0.6.1)
+      rack (>= 1.0)
+    rails (3.2.0)
+      actionmailer (= 3.2.0)
+      actionpack (= 3.2.0)
+      activerecord (= 3.2.0)
+      activeresource (= 3.2.0)
+      activesupport (= 3.2.0)
+      bundler (~> 1.0)
+      railties (= 3.2.0)
+    railties (3.2.0)
+      actionpack (= 3.2.0)
+      activesupport (= 3.2.0)
+      rack-ssl (~> 1.3.2)
+      rake (>= 0.8.7)
+      rdoc (~> 3.4)
+      thor (~> 0.14.6)
+    rake (0.9.2.2)
+    rb-appscript (0.6.1)
+    rb-fsevent (0.4.3.1)
+    rdoc (3.12)
+      json (~> 1.4)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
+    rockstar (0.6.4)
+      activesupport (>= 1.4.2)
+      activesupport (>= 1.4.2)
+      hpricot (>= 0.4.86)
+      hpricot (>= 0.4.86)
+      i18n
+      rake
+    rr (1.0.4)
+    ruby-hmac (0.4.0)
+    rubyzip (0.9.5)
+    selenium-webdriver (2.17.0)
+      childprocess (>= 0.2.5)
+      ffi (~> 1.0.9)
+      multi_json (~> 1.0.4)
+      rubyzip
+    shoulda-context (1.0.0)
+    shoulda-matchers (1.0.0)
+    simple_form (2.0.1)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
+    sprockets (2.1.2)
+      hike (~> 1.2)
+      rack (~> 1.0)
+      tilt (~> 1.1, != 1.3.0)
+    stringex (1.3.0)
+    term-ansicolor (1.0.7)
+    therubyracer (0.9.9)
+      libv8 (~> 3.3.10)
+    thor (0.14.6)
+    tilt (1.3.3)
+    tire (0.3.12)
+      activemodel (~> 3.0)
+      multi_json (~> 1.0)
+      rake
+      rest-client (~> 1.6.0)
+    treetop (1.4.10)
+      polyglot
+      polyglot (>= 0.3.1)
+    twitter-bootstrap-rails (2.0.1)
+      actionpack (>= 3.1)
+      less-rails (~> 2.1.5)
+      railties (>= 3.1)
+    tzinfo (0.3.31)
+    uglifier (1.2.2)
+      execjs (>= 0.3.0)
+      multi_json (>= 1.0.2)
+    webmock (1.7.10)
+      addressable (~> 2.2, > 2.2.5)
+      crack (>= 0.1.7)
+    xpath (0.1.4)
+      nokogiri (~> 1.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  backbone-support!
+  bitly
+  bson_ext (~> 1.5)
+  capybara
+  carrierwave-mongoid
+  carrierwave_backgrounder
+  coffee-rails (~> 3.2.1)
+  cucumber-rails
+  database_cleaner
+  delayed_job
+  delayed_job_mongoid
+  ejs
+  fabrication
+  fog
+  forgery (~> 0.3.12)
+  growl_notify
+  guard
+  guard-livereload
+  jquery-rails
+  kaminari
+  launchy
+  less-rails
+  meta-tags
+  mongoid (~> 2.4)
+  mongoid_session_store
+  mongoid_slug
+  multi_json
+  omniauth-facebook
+  postmark-rails (~> 0.4.1)
+  rack-test
+  rails (= 3.2.0)
+  rb-fsevent
+  rockstar
+  rr
+  shoulda-context
+  shoulda-matchers
+  simple_form (~> 2.0.0)
+  taglib-ruby!
+  tire
+  twitter-bootstrap-rails (~> 2.0.1)
+  uglifier (>= 1.0.3)
+  webmock

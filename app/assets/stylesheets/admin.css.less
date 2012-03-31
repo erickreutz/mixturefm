@@ -1,0 +1,61 @@
+/*
+ * = require twitter/bootstrap
+ * = require ./mixture/token-input.css.less
+ */
+
+ body {
+ 	padding: 60px 0px 0px 0px;
+ } 
+
+@import 'twitter/bootstrap';
+@import 'twitter/bootstrap/responsive';
+
+@navbarBackground: darken(#01abad, 5%);
+@navbarBackgroundHighlight: #01abad;
+@navbarText: #fff;
+@navbarLinkColor: #fff;
+@linkColor: rgb(100, 100, 100);
+@linkColorHover: darken(@linkColor, 10%);
+
+.navbar .navbar-text {
+	a { 
+		color: #fff;
+		text-decoration: underline;
+	}
+}
+
+.btn-group {
+	padding: 10px 0px;
+}
+
+.alert.notice {
+	.alert-info;
+}
+
+#alert-container {
+	margin: 0px 20px;
+}
+
+.navbar .nav .active > a,
+.navbar .nav .active > a:hover {
+  color: darken(@navbarLinkColorHover, 5%);
+  text-decoration: none;
+  background-color: darken(@navbarBackground, 5%);
+}
+
+.mixes, .mix-collections, .performers {
+	a.mix, a.mix-collection, a.performer {
+		display: block;
+		border-bottom: 1px solid rgb(225, 225, 225);
+		padding: 12px 15px 7px 15px;
+		text-decoration: none;
+
+		&:hover {
+			background: rgb(245, 245, 245);
+		}
+	}
+}
+
+ul.token-input-list {
+	width: 300px !important;
+}

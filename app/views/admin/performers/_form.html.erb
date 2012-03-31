@@ -1,0 +1,18 @@
+<%= simple_form_for [:admin, @performer], html: { class: 'form-vertical' } do |f| %>
+	<% if f.error_notification %>
+		<div class="alert alert-error fade in">
+			<a class="close" data-dismiss="alert" href="#">&times;</a>
+			<%= f.error_notification %>
+		</div>
+	<% end %>
+
+	<fieldset>
+		<legend>Basic Info</legend>
+		<%= f.input :name %>
+	</fieldset>
+
+	<div class="form-actions">
+    <%= f.button :submit, :class => 'btn btn-primary' %>
+    <%= submit_tag 'Cancel', :type => :reset, :class => "btn btn-danger" %>
+  </div>
+<% end %>

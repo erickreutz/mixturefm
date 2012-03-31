@@ -1,0 +1,17 @@
+<div class="mix {{#queued}} queued {{/queued}} clearfix">
+  <div class="left-c">
+    <p class="title" data-icon="S">
+       <strong><a href="c/{{ collection.slug }}">{{ collection.name }}</a></strong> {{#caption}}- <strong>{{ caption }}</strong> {{/caption}} with <strong>{{ performersDelimited }}</strong>
+    </p>
+    <p class="stats">
+      Debuted {{ prettyDebutedAt }} - Uploaded {{ prettyUploadedAt }}
+    </p>
+  </div>
+  <div class="right-c">
+    <p class="stats right">
+      <span class="time" data-icon="L">{{ prettyDuration }}</span>
+      <span class="play-count" data-icon="G">{{ play_count }}</span>
+      <span class="favorite-count{{#is_favorite}} favorite {{/is_favorite}}" data-icon="H">{{ favorite_count }}</span>
+    </p>
+  </div>
+</div>

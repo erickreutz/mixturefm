@@ -1,0 +1,180 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require vendor/vendor
+ *= require libs/libs
+ *= require_self
+ *= require_tree ./mixture
+*/
+
+@import "libs/bootstrap.css.less";
+
+ @gridColumns:       24;
+ @gridColumnWidth:   30px;
+ @gridGutterWidth:   10px;
+
+html, body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background: url(/assets/background-dark.png) repeat-x #a3b7cc fixed;
+	font-family: 'Helvetica Neue', Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+
+:-moz-any-link:focus {
+  outline: none;
+}
+
+.ios-view {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url(/assets/ios-splash.png);
+	background-color: #01abad;	
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 236px 322px;
+}
+
+#mixture {
+	.container();
+	margin-left: 40px;
+	margin-bottom: 100px;
+// 	background: orange;
+	position: relative;
+
+	> header#header {
+		padding-top: 28px;
+		margin-bottom: 15px;
+
+		.logo-wrapper {
+			.columns(4);
+			width: 180px;
+			margin: 0;
+		}
+
+		.search-wrapper {
+			.columns(10);
+			margin: 0;
+		}
+
+		.button-wrapper {
+			.columns(5);
+		}
+	}
+
+	> .left-c {
+		.columns(4);
+
+		//no margin because it needs to touch the right col
+		margin-right: 0px;
+		margin-left: 0px;
+		width: 180px;
+	}
+
+	> .middle-c {
+		.columns(15);
+
+		//no margin because it needs to touch the left col
+		margin-left: 0px;
+		width: 590px;
+	}
+
+	> .right-c {
+		.columns(@gridColumns - 15 - 4);
+		width: 170px;
+		position: absolute;
+		min-height: 700px;
+		height: 100%;
+		top: 0px;
+		left: 770px;
+// 		background: red;
+	}
+}
+
+#mixture.sticky-player {
+	#content {
+		padding-top: 127px;
+	}
+}
+
+#logo {
+	background: url(/assets/logo.png) no-repeat;
+	display: block;
+	width: 128px;
+	height: 23px;
+	margin: 3px 0px 0px 0px;
+}
+
+.content-wrapper {
+	background: #fff;
+	.border-radius(10px);
+	.box-shadow(0px 0px 5px rgba(0, 0, 0, 0.45));
+}
+
+#content {
+	padding: 10px;
+	position: relative;
+	
+	.header {
+
+		h2 {
+			margin: 15px 0px 12px 15px;
+			font-size: 18px;
+			color: #3f3f38;
+		}
+
+		hr {
+			height: 4px;
+			border: none;
+			background: url(/assets/content-head-bottom-border.png) repeat-x;
+			margin: 0;
+		}
+
+		.years {
+			list-style-type: none;
+			padding: 5px 15px;
+
+			.year {
+				margin: 0;
+				display: inline-block;
+				margin-bottom: 5px;
+
+				a {
+					font-size: 12px;
+					display: block;
+					padding: 3px 10px;
+					background: lighten(#5e78cd, 15%);
+					text-decoration: none;
+					color: #fff;
+					font-weight: bold;
+					.border-radius(4px);
+					text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.15);
+
+					&:hover, &.active {
+						background: #5e78cd;
+					}
+				}
+			}
+		}
+	}
+
+	.inner-content {
+		min-height: 700px;
+	}
+
+	.footer {}
+}

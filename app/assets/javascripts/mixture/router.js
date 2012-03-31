@@ -1,0 +1,1 @@
+Mixture.Router = Support.SwappingRouter.extend({});

@@ -1,0 +1,13 @@
+<div class="row-fluid">
+	<div class="span12">
+		<h2>Basic Info</h2>
+		<h4>Name</h4>
+		<p><%= @mix_collection.name %></p>
+
+		<div class="well">
+			<%= link_to "Edit", edit_admin_mix_collection_path(@mix_collection), class: 'btn btn-small' %>
+			<%= link_to "Delete", admin_mix_collection_path(@mix_collection), method: :delete, confirm: "Are you sure?", class: 'btn btn-small btn-danger' %>
+		</div>
+
+	</div>
+</div>

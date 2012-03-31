@@ -1,0 +1,10 @@
+<a id="<%= dom_id(list_item) %>" class="performer clearfix" href="<%= admin_performer_path list_item %>">
+	<div class="pull-left">
+		<h5><%= list_item.name %></h5>
+	</div>
+	<div>
+		<p class="audio-processing pull-right">
+			<%= list_item.mixes.count %> Mixes
+		</p>
+	</div>
+</a>

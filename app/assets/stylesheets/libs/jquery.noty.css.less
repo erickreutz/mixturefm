@@ -1,0 +1,169 @@
+@import "libs/bootstrap.css.less";
+
+ul.noty_container {
+	position: fixed;
+	z-index: 9999999;
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	width: 400px;
+	top: 20px;
+}
+ul.noty_container li {
+	position: relative;
+	float: left;
+	clear: both;
+	list-style: none;
+	padding: 0px;
+	margin: 10px 0 0 0;
+}
+ul.noty_container.topLeft {
+	left: 20px;
+}
+ul.noty_container.topRight {
+	right: 40px;
+}
+ul.noty_container.topRight li {
+	float: right;
+}
+
+/* Fix for: http://bugs.jquery.com/ticket/2278 */
+ul.noty_container.topLeft li, ul.noty_container.topRight li {
+	width: 400px;
+}
+
+div.noty_modal {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	z-index: 10000;
+	opacity: 0.30;
+	display: none;
+}
+
+.noty_bar {
+	position: fixed;
+	display: none;
+	z-index: 9999999;
+	background: url(../img/alert-lines.png) repeat-x scroll left top #fff;
+}
+
+.noty_bar.top {
+	top: 0;
+	left: 0;
+	width: 100%;
+	.box-shadow(0px 1px 3px rgba(0, 0, 0, 0.25));
+}
+
+.noty_bar.bottom {
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	border-top: 3px solid #eee;
+}
+
+.noty_bar.center {
+	top: 40%;
+	left: 19.5%;
+	width: 60%;
+	padding: 4px;
+	.border-radius(4px);
+	.box-shadow(0 4px 12px rgba(0,0,0,0.5));
+}
+
+.noty_bar.topLeft, .noty_bar.topRight {
+	width: 100%;
+	clear:both;
+	position: relative;
+	padding: 4px;
+	border: 3px solid #eee;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.noty_bar .noty_message {
+	padding: 10px 30px 10px 10px;
+	font-size: 14px;
+	width: 96%;
+	color: #fff;
+	font-weight: bold;
+	text-shadow: 0px 1px 0px #fff;
+}
+
+.noty_bar .noty_message .noty_buttons {
+	float: right;
+	font-size: 13px;
+	margin-top: -6px;
+	margin-left: -25px;
+}
+
+.noty_bar .noty_message .noty_buttons button {
+	margin-left: 5px;
+}
+
+.noty_bar .noty_close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 20px;
+	height: 20px;
+	line-height: 13px;
+	cursor: pointer;
+	font-size: 20px;
+	font-weight: bold;
+	.border-radius(20px);
+	text-align: center;
+	.box-shadow(0px 1px 0px #fff);
+}
+
+.noty_bar.alert {
+	.border-radius(0px);
+	padding: 0px;
+	background-color: #d9edf7;
+	margin: 0;
+	border: none;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+	#gradient > .vertical(#d9edf7, #bce8f1);
+
+	.noty_message {
+		color: #3a87ad;
+	}
+
+	.noty_close {
+		background: lighten(#3a87ad, 20%);
+		color: #d9edf7;
+	}
+
+}
+
+.noty_bar.error {
+	background-color: #f2dede;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+	#gradient > .vertical(#f2dede, #eed3d7);
+
+	.noty_message {
+		color: #b94a58;
+	}
+
+	.noty_close {
+		background: lighten(#b94a58, 20%);
+		color: #f2dede;
+	}
+}
+
+.noty_bar.success {
+	background-color: #dff0d8;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+	#gradient > .vertical(#dff0d8, #d6e9c6);
+
+	.noty_message {
+		color: #468847;
+	}
+
+	.noty_close {
+		background: lighten(#468847, 20%);
+		color: #dff0d8;
+	}
+}

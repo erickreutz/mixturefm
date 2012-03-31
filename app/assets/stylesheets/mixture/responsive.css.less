@@ -1,0 +1,75 @@
+@import "libs/bootstrap.css.less";
+
+@media only screen and (device-width: 768px) {
+	#mixture {
+		margin-left: 35px;
+	}
+
+	nav.primary {
+		ul li a {
+			// ios fucks this up to. Idk why though
+			.transition(none);
+		}
+	}
+}
+
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+
+  #mixture {
+  	width: 720px;
+
+  	> header#header {
+
+			.search-wrapper {
+				.columns(5);
+				margin: 0;
+			}
+
+			.button-wrapper {
+				.columns(4);
+				width: 200px;
+			}
+		}
+
+  	> .middle-c {
+  		width: 500px;
+		}
+
+		> .right-c {
+			display: none;
+		}
+  }
+
+  #player {
+  	.title-wrapper {
+  		width: 285px !important;
+  	}
+
+  	.bottom {
+  		.progress-bar {
+  			width: 74%;
+  		}
+
+  		.time {
+  			width: 25%;
+  		}
+  	}
+  }
+
+  .mixes {
+  	.mix {
+	  	.left-c {
+				.columns(9);
+				width: 340px;
+			}
+
+			.right-c {
+				.columns(3);
+				margin-right: 0;
+				width: 90px;
+			}
+  	}
+  }
+
+}

@@ -1,0 +1,23 @@
+<div class="logo-wrapper">
+	<a href="/"><h1 id="logo"></h1></a>
+</div>
+
+<div class="search-wrapper">
+	<form>
+		<div class="input-wrapper">
+			<input name="query" type="text" placeholder="Search..." value=""/>
+			<span class="icon"></span>
+		</div>
+	</form>
+</div>
+
+<div class="button-wrapper">
+	{{#authenticated}}
+		<a href="contribute" class="button oval gold right" id="contribute" data-icon="E">Contribute a Mix</a>
+		<a href="#" class="button oval blue right" id="facebook" style="display: none;">Login with <span class="icon facebook"></span> </a>
+	{{/authenticated}}
+	{{^authenticated}}
+		<a href="contribute" class="button oval gold right" id="contribute" style="display: none;" data-icon="E">Contribute a Mix</a>
+		<a href="#" class="button oval blue right" id="facebook">Login with <span class="icon facebook"></span> </a>
+	{{/authenticated}}
+</div>

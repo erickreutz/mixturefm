@@ -1,0 +1,305 @@
+@import "libs/bootstrap.css.less";
+
+// Specific buttons
+#contribute {
+	
+}
+
+#facebook {
+	font-weight: normal;
+	vertical-align: middle;
+}
+
+// Buttons
+.button.right {
+	float: right;
+}
+
+.button {
+	padding: 8px 17px;
+	display: inline-block;
+	background: red;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 12px;
+	background-color: transparent;
+	vertical-align: top;
+
+	&[data-icon]:before {
+		font-family: 'Pictos Custom';
+		content: attr(data-icon);
+		font-size: 24px;
+		line-height: 0px;
+		font-weight: normal;
+		vertical-align: middle;
+		margin-right: 7px;
+		color: rgba(0, 0, 0, 0.60);
+		text-shadow: rgba(255,255,255,0.75) 0 1px 0px;
+	}
+
+	.icon {
+		display: inline-block;
+	}
+
+	.icon.plus {
+		width: 13px;
+		background: red;
+		height: 14px;
+		display: inline-block;
+		background: url(/assets/plus.png) no-repeat;
+		margin-right: 7px;
+		margin-bottom: -2px;
+	}
+
+	.icon.facebook {
+		background: url(/assets/facebook-logo.png) no-repeat;
+		width: 62px;
+		height: 13px;
+		margin-left: 3px;
+		margin-bottom: -2px;
+	}
+}
+
+.button.oval {
+	.border-radius(20px);	
+}
+
+.button.more {
+	width: 100%;
+	border: none;
+	margin: 20px 0px 0px 0px;
+	padding: 7px 0px;
+	.border-radius(4px);
+	#gradient > .vertical(rgb(240, 240, 240), rgb(220, 220, 220));
+	border: 1px solid rgb(200, 200, 200);
+	color: rgb(50, 50, 50);
+	text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.75);
+	
+	&:hover {
+		#gradient > .vertical(rgb(245, 245, 245), rgb(230, 230, 230));
+	}
+
+	&:active {
+		.box-shadow(0px 1px 1px rgba(0, 0, 0, 0.15) inset);
+	}
+
+	&.disabled {
+		cursor: default;
+		opacity: 0.65;
+		color: rgb(75, 75, 75);
+
+		&:hover {
+			#gradient > .vertical(rgb(240, 240, 240), rgb(220, 220, 220));
+		}
+
+		&:active {
+		.box-shadow(none);
+	}
+	}
+}
+
+
+.button.gold {
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#f3e6ba), to(#e3c96b), color-stop(50%, #e8d27f));
+	background-image: -webkit-linear-gradient(top, #f3e6ba, #e8d27f 50%, #e3c96b);
+	background-image: -moz-linear-gradient(top, #f3e6ba, #e8d27f 50%, #e3c96b);
+	background-image: -o-linear-gradient(top, #f3e6ba, #e8d27f 50%, #e3c96b);
+	background-image: -ms-linear-gradient(top, #f3e6ba, #e8d27f 50%, #e3c96b);
+	background-image: linear-gradient(to bottom, #f3e6ba, #e8d27f 50%, #e3c96b);
+	color: #363636;
+	text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.75);
+	.box-shadow(~"inset 0px 1px 0px rgba(255, 255, 255, 0.80), 0px 1px 2px rgba(0, 0, 0, 0.25)");
+	border: 1px solid darken(#f3e6ba, 5%);
+}
+
+.button.gold:active {
+	.box-shadow(~"inset 0px 1px 3px rgba(0, 0, 0, 0.85)");
+	border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.button.blue {
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#5a86e5), to(#3b5998), color-stop(50%, #4668b2));
+	background-image: -webkit-linear-gradient(top, #5a86e5, #4668b2 50%, #3b5998);
+	background-image: -moz-linear-gradient(top, #5a86e5, #4668b2 50%, #3b5998);
+	background-image: -o-linear-gradient(top, #5a86e5, #4668b2 50%, #3b5998);
+	background-image: -ms-linear-gradient(top, #5a86e5, #4668b2 50%, #3b5998);
+	background-image: linear-gradient(to bottom, #5a86e5, #4668b2 50%, #3b5998);
+	color: #363636;
+	text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.75);
+	.box-shadow(~"inset 0px 1px 0px rgba(255, 255, 255, 0.30), 0px 1px 3px rgba(0, 0, 0, 0.45)");
+	color: #fff;
+	.border-radius(4px);
+	border: 1px solid darken(#3b5998, 5%);
+}
+
+.button.blue:active {
+	.box-shadow(~"inset 0px 1px 4px rgba(0, 0, 0, 0.45)");
+}
+
+// BUTTON STYLES
+// -------------
+
+
+// Base styles
+// --------------------------------------------------
+
+// Core
+.btn {
+  display: inline-block;
+  padding: 4px 10px 4px;
+  font-size: @baseFontSize;
+  line-height: @baseLineHeight;
+  color: @grayDark;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(255,255,255,.75);
+  #gradient > .vertical-three-colors(@white, @white, 25%, darken(@white, 10%)); // Don't use .gradientbar() here since it does a three-color gradient
+  border: 1px solid #ccc;
+  border-bottom-color: #bbb;
+  .border-radius(4px);
+  @shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  .box-shadow(@shadow);
+  cursor: pointer;
+}
+
+// Hover state
+.btn:hover {
+  color: @grayDark;
+  text-decoration: none;
+  background-color: darken(@white, 10%);
+  background-position: 0 -15px;
+
+  // transition is only when going to hover, otherwise the background
+  // behind the gradient (there for IE<=9 fallback) gets mismatched
+  .transition(background-position .1s linear);
+}
+
+// Focus state for keyboard and accessibility
+.btn:focus {
+  .tab-focus();
+}
+
+// Active state
+.btn.active,
+.btn:active {
+  background-image: none;
+  @shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  .box-shadow(@shadow);
+  background-color: darken(@white, 10%);
+  background-color: darken(@white, 15%) e("\9");
+  color: rgba(0,0,0,.5);
+  outline: 0;
+}
+
+// Disabled state
+.btn.disabled,
+.btn[disabled] {
+  cursor: default;
+  background-image: none;
+  background-color: darken(@white, 10%);
+  .opacity(65);
+  .box-shadow(none);
+}
+
+
+// Button Sizes
+// --------------------------------------------------
+
+// Large
+.btn-large {
+  padding: 9px 14px;
+  font-size: @baseFontSize + 2px;
+  line-height: normal;
+  .border-radius(5px);
+}
+.btn-large .icon {
+  margin-top: 1px;
+}
+
+// Small
+.btn-small {
+  padding: 5px 9px;
+  font-size: @baseFontSize - 2px;
+  line-height: @baseLineHeight - 2px;
+}
+.btn-small .icon {
+  margin-top: -1px;
+}
+
+
+// Alternate buttons
+// --------------------------------------------------
+
+// Set text color
+// -------------------------
+.btn-primary,
+.btn-primary:hover,
+.btn-warning,
+.btn-warning:hover,
+.btn-danger,
+.btn-danger:hover,
+.btn-success,
+.btn-success:hover,
+.btn-info,
+.btn-info:hover {
+  text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+  color: @white;
+}
+// Provide *some* extra contrast for those who can get it
+.btn-primary.active,
+.btn-warning.active,
+.btn-danger.active,
+.btn-success.active,
+.btn-info.active {
+  color: rgba(255,255,255,.75);
+}
+
+// Set the backgrounds
+// -------------------------
+.btn-primary {
+  .buttonBackground(@primaryButtonBackground, spin(@primaryButtonBackground, 20));
+
+  &.disabled, &[disabled] {
+    background-color: saturate(lighten(spin(@primaryButtonBackground, 20), 30%), 40%);
+    opacity: 0.65;
+  }
+}
+// Warning appears are orange
+.btn-warning {
+  .buttonBackground(lighten(@orange, 15%), @orange);
+}
+// Danger and error appear as red
+.btn-danger {
+  .buttonBackground(#ee5f5b, #bd362f);
+}
+// Success appears as green
+.btn-success {
+  .buttonBackground(#62c462, #51a351);
+}
+// Info appears as a neutral blue
+.btn-info {
+  .buttonBackground(#5bc0de, #2f96b4);
+}
+
+
+// Cross-browser Jank
+// --------------------------------------------------
+
+button.btn,
+input[type="submit"].btn {
+  &::-moz-focus-inner {
+  padding: 0;
+    border: 0;
+  }
+
+  // IE7 has some default padding on button controls
+  *padding-top: 2px;
+  *padding-bottom: 2px;
+  &.large {
+    *padding-top: 7px;
+    *padding-bottom: 7px;
+  }
+  &.small {
+    *padding-top: 3px;
+    *padding-bottom: 3px;
+  }
+}

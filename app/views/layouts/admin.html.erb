@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Admin | Mixture.fm</title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+  <link rel="SHORTCUT ICON" href="<%= image_path 'favicon.png' %>"> 
+
+	<%= stylesheet_link_tag "admin" %>
+	<%= csrf_meta_tags %>
+
+</head>
+
+<body>
+	<div class="navbar navbar-fixed-top">
+	  <div class="navbar-inner">
+	    <div class="container-fluid">
+	      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </a>
+	      <a class="brand" href="#">Mixture.fm</a>
+	      <div class="nav-collapse">
+	        <ul class="nav">
+	          <li class="<%= controller.controller_name == "mixes" ? "active" : "" %>">
+	          	<%= link_to "Mixes", admin_mixes_path %>
+	          </li>
+	          <li class="<%= controller.controller_name == "mix_collections" ? "active" : "" %>">
+	          	<%= link_to "Collections", admin_mix_collections_path %>
+	          </li>
+	          <li class="<%= controller.controller_name == "performers" ? "active" : "" %>">
+	          	<%= link_to "Performers", admin_performers_path %>
+	          </li>
+	        </ul>
+	      </div><!--/.nav-collapse -->
+	    </div>
+	  </div>
+	</div>
+	
+	<% if !flash.empty? %>
+	<div id="alert-container">
+		<% flash.each do |name, msg| %>
+			<%= content_tag(:div, raw(msg), :class => "alert #{name} fade in") %>
+		<% end %>
+	</div>
+	<% end %>
+
+	<div id="admin" class="container-fluid">
+		<%= yield :layout %>
+	</div>
+
+	<%= javascript_include_tag "admin" %>
+	<%= yield :javascript %>
+</body>
+</html>

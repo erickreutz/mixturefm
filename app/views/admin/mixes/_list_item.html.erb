@@ -1,0 +1,14 @@
+<a id="<%= dom_id(list_item) %>" class="mix" href="<%= admin_mix_path list_item %>">
+	<div>
+		<h5><%= list_item.title %></h5>
+	</div>
+	<div>
+		<p class="audio-processing">
+			<% if !list_item.audio.sound.present? || list_item.audio.sound_processing? %>
+				<span class="label label-warning">Audio Processing...</span>
+			<% else %>
+				<span class="label label-success">Audio Processing Complete</span>
+			<% end %>
+		</p>
+	</div>
+</a>

@@ -1,0 +1,13 @@
+en:
+# 	mongoid:
+# 		errors:
+# 			models:
+# 				mix:
+# 					attributes:
+# 						debuted_at:
+# 							blank: "Debut Date cannot be blank"
+# 		attributes:
+# 			mix:
+# 				debuted_at: "Debut Date"
+# 				performer_tokens: "Performers"
+# 				mix_collection: "Collection"

@@ -1,0 +1,43 @@
+<%= content_for :javascript do -%>
+	<script type="text/javascript">
+		$(function() {
+			$("#mix_performer_tokens").tokenInput("/api/v0/performers/search", {
+				hintText: "Type in a artist",
+				crossDomain: false,
+				allowNewItems: true,
+				preventDuplicates: true,
+				animateDropdown: false
+	  	});
+		});
+	</script>
+<% end %>
+
+
+<%= simple_form_for [:admin, @mix], html: { class: 'form-vertical' } do |f| %>
+	<% if f.error_notification %>
+		<div class="alert alert-error fade in">
+			<a class="close" data-dismiss="alert" href="#">&times;</a>
+			<%= f.error_notification %>
+		</div>
+	<% end %>
+
+	<fieldset>
+		<legend>Basic Info</legend>
+		<%= f.input :mix_collection_id,
+			collection: MixCollection.all,
+			selected: @mix.mix_collection.id
+		%>
+		<%= f.input :caption %>
+		<%= f.input :performer_tokens, input_html: { data: { pre: @mix.performers.to_json } } %>
+		<%= f.input :debuted_at,
+			order: [:day, :month, :year],
+			:start_year => Date.today.year - 25,
+			:end_year => Date.today.year,
+			as: :date %>
+	</fieldset>
+
+	<div class="form-actions">
+    <%= f.button :submit, :class => 'btn btn-primary' %>
+    <%= submit_tag 'Cancel', :type => :reset, :class => "btn btn-danger" %>
+  </div>
+<% end %>

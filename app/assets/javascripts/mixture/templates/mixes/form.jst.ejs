@@ -1,0 +1,69 @@
+<form class="form-vertical" method="post">
+  <div class="errors"></div>
+
+  <fieldset>
+    <div class="control-group">        
+      <label class="control-label">Collection</label>
+      <div class="controls mix-collection-id">
+        <select name="mix_collection_id">
+          <option value="" selected="selected">-- choose a collection --</option>
+          {{#mixCollections}}
+            <option value="{{ id }}">{{ name }}</option>
+          {{/mixCollections}}
+        </select>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">Caption</label>
+      <div class="controls">
+        <input class="input-xlarge" id="input01" type="text" name="caption" value="{{ caption }}" placeholder="Live at Creamfields">
+        <p class="help-block">If the mix has a specific number or was speacial in anyway please specify it here. (i.e. "#200" or "Live at Creamfields" or "Live at Rockness"</p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">Performers</label>
+      <div class="controls">
+        <input class="input-xlarge" name="performer_tokens" data-pre="{{ performerTokensPrepopulate }}" id="performer-tokens" type="text" value="">
+        <p class="help-block">The artists perfoming the mix(es). (i.e. Jamie xx, Flying Lotus, Sasha, Skream) </p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">Debuted</label>
+      <div class="controls add-on">
+        <select name="debuted_at_day" class="span2">
+          <option value="">Day</option>
+          {{#days}}
+            <option value="{{ . }}">{{ . }}</option>
+          {{/days}}
+        </select>
+        <select name="debuted_at_month" class="span3">
+          <option value="">Month</option>
+          {{#months}}
+            <option value="{{ index }}">{{ name }}</option>
+          {{/months}}
+        </select>
+        <select name="debuted_at_year" class="span2">
+          <option value="">Year</option>
+          {{#years}}
+            <option value="{{ . }}">{{ . }}</option>
+          {{/years}}
+        </select>
+        <br/>
+        <span class="help-block">The date the mix was debuted, released, or aired on.</span>
+      </div>
+    </div>
+
+    <input type="hidden" name="audio_id" value=""/>
+
+    <div class="well">
+      <div class="pull-right">
+        <a href="#" class="cancel">Cancel</a>
+        <button class="btn btn-primary submit">Save</button>
+      </div>
+    </div>
+  </fieldset>
+
+</form>

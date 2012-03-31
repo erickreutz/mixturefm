@@ -1,0 +1,258 @@
+@import "libs/bootstrap.css.less";
+
+.new-mix {
+  overflow: hidden;
+  background: #fff;
+
+  .info-errors {
+  	padding: 0px 20px;
+  }
+
+  h3 {
+	  display: block;
+	  width: 100%;
+	  padding: 0;
+	  margin-bottom: 15px;
+	  padding-left: 17px;
+	  font-size: 16px;
+	  line-height: 18px;
+	  color: @grayDark;
+	  border: 0;
+	  font-weight: normal;
+
+		.step {
+	    background: @grayDark;
+	    color: #fff;
+	    width: 22px;
+	    height: 22px;
+	    text-align: center;
+	    font-size: 12px;
+	    line-height: 22px;
+	    .border-radius(20px);
+	    margin-right: 10px;
+	    display: inline-block;
+	    vertical-align: text-bottom;
+	  }
+	}
+
+
+	.mix-wrapper {
+		position: relative;
+
+	  .overlay {
+	    position: absolute;
+	    top: 0px;
+	    bottom: 0px;  
+	    width: 100%;
+	    height: 100%;
+	    #gradient > .vertical(rgba(255, 255, 255, 0.00), rgba(255, 255, 255, 0.85));
+	    opacity: 1;
+	    .transition(all 0.5s ease-in-out);
+  	}	
+
+	  button.submit {
+	    opacity: 1.0; //gradient fucks up the opacity. 
+	  }
+	}
+}
+
+.linked-mix {
+	.mix {
+		padding: 20px;
+		margin: 15px 0px 15px 0px;
+	  border: 1px solid lighten(@grayLight, 20%);
+	  #gradient > .vertical(#f0f0f0, #e5e5e5);
+		.border-radius(4px);
+	  color: #333;
+	  text-shadow: 0px 1px 0px #fff;
+	  .clearfix();
+
+	  &.queued {
+	  	[data-icon]:before {
+		  	font-family: 'Pictos Custom';
+				content: attr(data-icon);
+				font-size: 22px;
+				vertical-align: middle;
+				margin-right: 7px;
+			}
+	  }
+
+	  a {
+	  	color: inherit;
+	  	text-decoration: none;
+	  }
+
+	  p {
+	  	margin: 0;
+	  }
+
+	  p.title {
+	  	display: block;
+	  	width: 60%;
+	  	float: left;
+	  }
+
+	  .stats {
+	  	display: block;
+	  	width: 40%;
+	  	float: right;
+	  	text-align: right;
+	  	margin-top: 6px;
+
+	  	span {
+	  		margin-right: 15px;
+	  	}
+
+	  	span[data-icon]:before {
+				font-family: 'Pictos Custom';
+				content: attr(data-icon);	
+				margin-right: 10px;
+				font-size: 14px;
+				text-shadow: 0px 1px 0px #fff;
+			}
+	  }
+	}
+}
+
+// a list of mixes
+.mixes {
+
+	// a mix in a list
+	.mix {
+		padding: 10px 15px;
+		border-bottom: 1px solid #e5e5e4;
+		color: #666666;
+		text-decoration: none;
+		font-size: 12px;
+		font-style: italic;
+		cursor: pointer;
+
+			&.queued{
+				.title[data-icon]:before {
+				  font-family: 'Pictos Custom';
+					content: attr(data-icon);
+					font-size: 22px;
+					vertical-align: middle;
+					font-style: normal;
+					margin-right: 7px;
+				}
+			}
+
+			&:hover {
+				background: #f3f3f3;
+
+				p.stats {
+					color: #666;
+				}
+			}
+		}
+
+		.left-c {
+			.columns(12);
+			width: 430px;
+		}
+
+		.middle-c {
+			.columns(12);
+			width: 380px;
+		}
+
+		.right-c {
+			.columns(3);
+			margin-right: 0;
+			width: 90px;
+		}
+
+		p {
+			margin: 0px 0px 5px 0px;
+		}
+
+		.play-button {
+			.columns(2);
+			background: @grayLighter;
+			.border-radius(20px);
+			width: 40px;
+			height: 40px;
+			.box-shadow(0px 1px 3px rgba(0, 0, 0, 0.35));
+			border-top: 1px solid #fff;
+			#gradient > .vertical(darken(#fff, 9%), darken(#fff, 13%));
+			cursor: pointer;
+			position: relative;
+			z-index: 100;
+
+			&:active {
+				#gradient > .vertical(darken(#fff, 13%), darken(#fff, 9%));
+				.box-shadow(inset 0px 1px 2px rgba(0, 0, 0, 0.25));
+
+				span.icon {
+					text-shadow: 0px -1px 0px #fff;
+				}
+			}
+
+			span.icon {
+				font-family: 'Pictos Custom';
+				font-style: normal;
+				font-size: 16px;
+				position: absolute;
+				top: 13px;
+				left: 15px;
+				text-shadow: 0px 1px 0px #fff;
+			}
+		}
+
+		p.title {
+			line-height: 20px;
+		}
+
+		p.stats {
+			font-style: normal;
+			font-size: 12px;
+			color: #999999;
+
+			span {
+				display: block;
+
+				&[data-icon]:before {
+					font-family: 'Pictos Custom';
+					content: attr(data-icon);	
+					margin-right: 10px;
+				}
+
+				&:not(:last-child) {
+					margin-bottom: 10px;
+				}
+			}
+
+			span.favorite-count.favorite {
+				&[data-icon]:before {
+					color: #d73a5f;
+				}
+			}
+		}
+
+		p.stats.right {
+			float: right;
+			color: #8a8a8a;
+		}
+
+		p:last-child {
+			margin-bottom: 0px;
+		}
+
+		strong {
+			font-weight: bold;
+			color: #4c4c4c;
+			font-size: 14px;
+			font-style: normal;
+
+			a {
+				color: #5e78cd;
+				text-decoration: none;
+
+				&:hover {
+					color: darken(#5e78cd, 10%);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,12 @@
+<h2 class="page-title">
+	{{ title }}
+</h2>
+
+<ul class="years">
+	<li data-year="all" class="active">All Years</li>
+	{{#years}}
+		<li data-year="{{.}}">{{.}}</li>
+	{{/years}}
+</ul>
+
+<hr/>

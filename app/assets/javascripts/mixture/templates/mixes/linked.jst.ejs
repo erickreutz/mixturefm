@@ -1,0 +1,10 @@
+<div class="mix">	
+	<p class="title" data-icon="S">
+		 <strong><a href="{{ collection.slug }}">{{ collection.name }}</a></strong> {{#caption}}- <strong>{{ caption }}</strong> {{/caption}} with <strong>{{ performersDelimited }}</strong>
+	</p>
+	<p class="stats">
+		<span class="time" data-icon="L">{{ prettyDuration }}</span>
+		<span class="play-count" data-icon="G">{{ play_count }}</span>
+		<span class="favorite-count{{#is_favorite}} favorite {{/is_favorite}}" data-icon="H">{{ favorite_count }}</span>
+	</p>
+</div>
