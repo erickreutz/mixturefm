@@ -39,6 +39,10 @@ group :assets do
 	gem 'jquery-rails'
 end
 
+group :production do
+	gem 'taglib-heroku', git: 'git://github.com/pjkelly/taglib-heroku.git'
+end
+
 group :test, :development do
 	gem 'fabrication'
 end
