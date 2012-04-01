@@ -18,10 +18,11 @@ GIT
     backbone-support (0.2.0)
 
 GIT
-  remote: https://github.com/rud1r055/taglib-ruby.git
-  revision: 3ab1b7ca7a06414f7c68f7f100eb2f8d627e14a2
+  remote: https://github.com/pjkelly/taglib-ruby.git
+  revision: c5ec622b65d0f9aa558a8104f58c57f974794cf1
   specs:
     taglib-ruby (0.3.1)
+      taglib-heroku
 
 GEM
   remote: https://rubygems.org/

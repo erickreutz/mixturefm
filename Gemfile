@@ -21,7 +21,7 @@ gem 'mongoid_slug'
 gem 'carrierwave-mongoid', require: 'carrierwave/mongoid'
 gem 'carrierwave_backgrounder'
 gem 'fog'
-gem 'taglib-ruby', require: 'taglib', git: 'https://github.com/rud1r055/taglib-ruby.git'
+gem 'taglib-ruby', require: 'taglib', git: 'https://github.com/pjkelly/taglib-ruby.git'
 gem 'meta-tags', require: 'meta_tags'
 
 # For admin section
