@@ -1,28 +1,8 @@
 GIT
-  remote: git://github.com/pjkelly/cmake-heroku.git
-  revision: fd6575c865efdbb008e417fefbc28ce74338402d
-  specs:
-    cmake-heroku (2.8.7)
-
-GIT
-  remote: git://github.com/pjkelly/taglib-heroku.git
-  revision: 7b9beda1a0d05f78b826eb8515493fd979254aa3
-  specs:
-    taglib-heroku (1.7)
-      cmake-heroku
-
-GIT
   remote: git@github.com:erickreutz/backbone-support.git
   revision: 3048c2667fbccffec428e0bc03a7fbc1509e91f3
   specs:
     backbone-support (0.2.0)
-
-GIT
-  remote: https://github.com/pjkelly/taglib-ruby.git
-  revision: c5ec622b65d0f9aa558a8104f58c57f974794cf1
-  specs:
-    taglib-ruby (0.3.1)
-      taglib-heroku
 
 GEM
   remote: https://rubygems.org/
@@ -305,7 +285,6 @@ DEPENDENCIES
   capybara
   carrierwave-mongoid
   carrierwave_backgrounder
-  cmake-heroku!
   coffee-rails (~> 3.2.1)
   cucumber-rails
   database_cleaner
@@ -337,8 +316,6 @@ DEPENDENCIES
   shoulda-context
   shoulda-matchers
   simple_form (~> 2.0.0)
-  taglib-heroku!
-  taglib-ruby!
   tire
   twitter-bootstrap-rails (~> 2.0.1)
   uglifier (>= 1.0.3)

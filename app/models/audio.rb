@@ -15,9 +15,9 @@ class Audio
   mount_uploader :sound, SoundUploader
   store_in_background :sound
 
-  before_validation :read_mp3_meta
+  # before_validation :read_mp3_meta
   validates_presence_of :sound
-  validate :mp3_meta
+  # validate :mp3_meta
 
   attr_accessible :sound, as: [ :default, :admin ]
   attr_accessible :duration, :sample_rate, :bitrate, as: [ :admin ]
@@ -49,38 +49,38 @@ class Audio
   end
 
   protected
-  def read_mp3_meta
-    return if !sound.present? && !sound_changed?
+  # def read_mp3_meta
+  #   return if !sound.present? && !sound_changed?
 
-    mp3meta = TagLib::MPEG::File.new(sound.path)
-    if !mp3meta.audio_properties.nil?
-    
-      props = mp3meta.audio_properties
+  #   mp3meta = TagLib::MPEG::File.new(sound.path)
+  #   if !mp3meta.audio_properties.nil?
 
-      self.duration    = props.length
-      self.bitrate     = props.bitrate
-      self.sample_rate = props.sample_rate
-    end
+  #     props = mp3meta.audio_properties
 
-    tag = mp3meta.tag
+  #     self.duration    = props.length
+  #     self.bitrate     = props.bitrate
+  #     self.sample_rate = props.sample_rate
+  #   end
 
-    self.tag_meta = {
-      album: tag.album,
-      artist: tag.artist,
-      comment: tag.comment,
-      genre: tag.genre,
-      title: tag.title,
-      track: tag.track,
-      year: tag.year,
-    }
+  #   tag = mp3meta.tag
 
-    mp3meta.close
-    mp3meta = nil
-  end
+  #   self.tag_meta = {
+  #     album: tag.album,
+  #     artist: tag.artist,
+  #     comment: tag.comment,
+  #     genre: tag.genre,
+  #     title: tag.title,
+  #     track: tag.track,
+  #     year: tag.year,
+  #   }
 
-  def mp3_meta
-    props = [self.duration, self.bitrate, self.sample_rate].keep_if { |p| p.present? && !p.zero? }
-    errors[:base] << "Error reading audio file" if props.count < 3
-  end
+  #   mp3meta.close
+  #   mp3meta = nil
+  # end
+
+  # def mp3_meta
+  #   props = [self.duration, self.bitrate, self.sample_rate].keep_if { |p| p.present? && !p.zero? }
+  #   errors[:base] << "Error reading audio file" if props.count < 3
+  # end
 
 end

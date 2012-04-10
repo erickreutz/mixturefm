@@ -21,7 +21,7 @@ gem 'mongoid_slug'
 gem 'carrierwave-mongoid', require: 'carrierwave/mongoid'
 gem 'carrierwave_backgrounder'
 gem 'fog'
-gem 'taglib-ruby', require: 'taglib', git: 'https://github.com/pjkelly/taglib-ruby.git'
+# gem 'taglib-ruby', require: 'taglib', git: 'https://github.com/pjkelly/taglib-ruby.git'
 gem 'meta-tags', require: 'meta_tags'
 
 # For admin section
@@ -37,11 +37,6 @@ group :assets do
 
 	# Admin section
 	gem 'jquery-rails'
-end
-
-group :production do
-	gem 'cmake-heroku', git: 'git://github.com/pjkelly/cmake-heroku.git'
-	gem 'taglib-heroku', git: 'git://github.com/pjkelly/taglib-heroku.git'
 end
 
 group :test, :development do
