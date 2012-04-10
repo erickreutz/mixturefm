@@ -1,0 +1,1 @@
+Tire.configure { url ENV['BONSAI_INDEX_URL'] }
