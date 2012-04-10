@@ -11,7 +11,7 @@ gem 'mongoid_session_store'
 gem 'ejs'
 gem 'backbone-support', git: 'git@github.com:erickreutz/backbone-support.git'
 gem 'kaminari'
-gem 'tire' # for search
+gem 'tire', git: 'git://github.com/jfredett/tire.git'
 gem 'omniauth-facebook'
 gem 'bitly'
 gem 'postmark-rails','~> 0.4.1'
