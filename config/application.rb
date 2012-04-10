@@ -17,6 +17,7 @@ module Mixture
   class Application < Rails::Application
     # require 'rack/raw_upload'
 
+
     # config.middleware.use 'Rack::RawUpload', explicit: true
     config.middleware.use OmniAuth::Builder do
       provider :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET']
