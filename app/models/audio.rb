@@ -13,7 +13,7 @@ class Audio
   field :sound_processing, type: Boolean, default: false
 
   mount_uploader :sound, SoundUploader
-  store_in_background :sound
+  # store_in_background :sound
 
   # before_validation :read_mp3_meta
   validates_presence_of :sound
