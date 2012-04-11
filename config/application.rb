@@ -24,6 +24,10 @@ module Mixture
       configure do |config|
         config.path_prefix = '/api/v0/auth'
       end
+
+      on_failure do |env|
+        Rails.logger.info "OMNIAUTH ERROR = #{env['omniauth.error'].inspect}"
+      end
     end
 
     config.action_mailer.delivery_method   = :postmark
