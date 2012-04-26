@@ -3,8 +3,4 @@ class MixObserver < Mongoid::Observer
 		# keep the search index in check.
 		mix.tire.index.remove('mix', mix.id)
 	end
-
-	def after_create(mix) {
-		# Delayed job that goes out and fetches the soundcloud data
-	}
 end

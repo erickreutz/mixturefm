@@ -23,6 +23,7 @@ gem 'carrierwave_backgrounder', git: 'git://github.com/lardawge/carrierwave_back
 gem 'fog'
 gem 'unicorn'
 gem 'meta-tags', require: 'meta_tags'
+gem 'soundcloud', git: 'git://github.com/andrejj/soundcloud-ruby.git'
 
 # For admin section
 gem 'twitter-bootstrap-rails', '~> 2.0.1'

@@ -2,12 +2,12 @@ class Api::V0::MixesController < Api::BaseController
 	before_filter :authenticate_with_api_key
 	before_filter :verify_authenticated_user, only: [:create]
 	before_filter :find_mix_collection, only: [:index]
-	before_filter :find_mix, only: [:show, :played]
+	before_filter :find_mix, only: [:show, :played, :stream]
 
 	def index
 		@models = @mix_collection.mixes
 		@models = @models.in_year(params[:year]) if !params[:year].blank?
-		
+
 		@models = @models.order_by([:debuted_at, params[:year].blank? ? :desc : :asc])
 			.page(params[:page])
 			.per(params[:per_page])
@@ -19,7 +19,7 @@ class Api::V0::MixesController < Api::BaseController
 			models: @models
 		}
 
-		render json: resp.as_json(user: @current_user) 
+		render json: resp.as_json(user: @current_user)
 	end
 
 	def recent
@@ -31,7 +31,7 @@ class Api::V0::MixesController < Api::BaseController
 			models: @models
 		}
 
-		render json: resp.as_json(user: @current_user) 
+		render json: resp.as_json(user: @current_user)
 	end
 
 	def popular
@@ -43,7 +43,7 @@ class Api::V0::MixesController < Api::BaseController
 			models: @models
 		}
 
-		render json: resp.as_json(user: @current_user) 
+		render json: resp.as_json(user: @current_user)
 	end
 
 	def search
@@ -56,7 +56,7 @@ class Api::V0::MixesController < Api::BaseController
 			models: @results
 		}
 
-		render json: resp.as_json(user: @current_user) 
+		render json: resp.as_json(user: @current_user)
 	end
 
 	def show
@@ -68,6 +68,10 @@ class Api::V0::MixesController < Api::BaseController
 		head :ok
 	end
 
+	def stream
+		render json: { stream: @mix.sc_stream_url }
+	end
+
 	def create
 		@mix = Mix.new params[:mix]
 		@mix.contributor = @current_user
@@ -77,5 +81,5 @@ class Api::V0::MixesController < Api::BaseController
 		else
 			render json: @mix.errors.full_messages, status: :not_acceptable
 		end
-	end		
+	end
 end

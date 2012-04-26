@@ -5,16 +5,6 @@ class Admin::MixesController < Admin::BaseController
 		@mixes = Mix.unscoped.paginate(page: params[:page])
 	end
 
-	def published
-		@mixes = Mix.paginate(page: params[:page])
-		render :index
-	end
-
-	def unpublished
-		@mixes = Mix.unscoped.unpublished.paginate(page: params[:page])
-		render :index
-	end
-
 	def show; end
 	def edit; end
 
@@ -26,16 +16,6 @@ class Admin::MixesController < Admin::BaseController
 		else
 			render :edit
 		end
-	end
-
-	def publish
-		@mix.publish!
-		redirect_to admin_mix_path(@mix), notice: "Mix has been published."
-	end
-
-	def unpublish
-		@mix.unpublish!
-		redirect_to admin_mix_path(@mix), notice: "Mix has been unpublished."
 	end
 
 	protected

@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/andrejj/soundcloud-ruby.git
+  revision: 019b14e19cfe1b2a84d9374d189499c7d1e9d3f6
+  specs:
+    soundcloud (0.2.9)
+      hashie
+      httmultiparty (>= 0.3)
+      httparty (>= 0.7.3)
+
+GIT
   remote: git://github.com/jfredett/tire.git
   revision: 5bce2b5294b6356c39e939f1203da1f7c71279b3
   specs:
@@ -146,6 +155,9 @@ GEM
     hashr (0.0.20)
     hike (1.2.1)
     hpricot (0.8.6)
+    httmultiparty (0.3.7)
+      httparty (>= 0.7.3)
+      multipart-post
     httparty (0.8.1)
       multi_json
       multi_xml
@@ -334,6 +346,7 @@ DEPENDENCIES
   shoulda-context
   shoulda-matchers
   simple_form (~> 2.0.0)
+  soundcloud!
   tire!
   twitter-bootstrap-rails (~> 2.0.1)
   uglifier (>= 1.0.3)

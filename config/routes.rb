@@ -3,7 +3,7 @@ Mixture::Application.routes.draw do
 
   namespace :api do
     namespace :v0 do
-      
+
       # Mixes
       resources :mixes, only: [:create, :show, :update] do
         collection do
@@ -12,19 +12,14 @@ Mixture::Application.routes.draw do
 
           get 'recent'
           get 'recent/page/:page', action: :recent
-         
+
           get 'search/:query', action: :search
           get 'search/:query/page/:page', action: :search
         end
 
         member do
-          put 'played',    action: :played
-        end
-      end
-
-      resources :audios, only: [:create, :show, :update] do
-        member do
-          post 'stream' # so it gets protected
+          put 'played', action: :played
+          get 'stream', action: :stream
         end
       end
 
@@ -38,7 +33,7 @@ Mixture::Application.routes.draw do
           get 'all'
           get 'page/:page', action: :index
         end
-        
+
         resources :mixes, only: [:index] do
           get 'page/:page', action: :index, on: :collection
         end
@@ -70,16 +65,7 @@ Mixture::Application.routes.draw do
 
   namespace :admin do
     root to: redirect('/admin/mixes')
-    resources :mixes do
-      collection do
-        get 'published'
-        get 'unpublished'
-      end
-      member do
-        put 'publish'
-        put 'unpublish'
-      end
-    end
+    resources :mixes
     resources :mix_collections
     resources :performers
   end
