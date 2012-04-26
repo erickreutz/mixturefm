@@ -4,7 +4,7 @@ Mixture.Routers.App = Mixture.Router.extend({
       el: $('#mixture'),
       navCollection: (new Backbone.Collection(options.navItems))
     });
-    
+
     this.appView.render();
     this.el = $('#content');
   },
@@ -13,7 +13,6 @@ Mixture.Routers.App = Mixture.Router.extend({
     "": "mixesPopular",
     "popular": "mixesPopular",
     "recent": "mixesRecent",
-    "contribute": "mixesNew",
     "collections": "collectionsIndex",
     "search": "search",
     "search/:query": "search",
@@ -22,11 +21,11 @@ Mixture.Routers.App = Mixture.Router.extend({
     "c/:collectionSlug": "collectionsShow",
     "ios": "ios"
   },
-  
+
   mixesPopular: function(mix_id) {
     var collection, mix, linkedMixView, view;
     this.appView.primaryNavView.navChange("popular");
-    
+
     if (mix_id) {
       mix = new Mixture.Models.Mix({id: mix_id});
 
@@ -70,7 +69,7 @@ Mixture.Routers.App = Mixture.Router.extend({
     var view = new Mixture.Views.Content({
       headerView: (new Mixture.Views.Shared.Title({
         title: 'Recent Mixes'
-      })),      
+      })),
       innerContentView: (new Mixture.Views.Mixes.Collection({
         collection: collection
       }))
@@ -78,32 +77,6 @@ Mixture.Routers.App = Mixture.Router.extend({
 
     this.swap(view);
     collection.fetch();
-  },
-
-  mixesNew: function() {
-    // if (!Mixture.user.isAuthenticated()) {
-    //   this.navigate('/', {trigger: true});
-    //   noty({
-    //     type: 'alert',
-    //     text: 'You must be logged in to contribute a mix.'
-    //   });
-
-    //   return;
-    // }
-
-    this.appView.primaryNavView.navChange("");
-    var mix = new Mixture.Models.Mix();
-    
-    var view = new Mixture.Views.Content({
-      headerView: (new Mixture.Views.Shared.Title({
-        title: 'Contribute a Mix'
-      })),
-      innerContentView: (new Mixture.Views.Mixes.New({
-        model: mix
-      }))
-    });
-
-    this.swap(view);
   },
 
   collectionsIndex: function() {
@@ -128,7 +101,7 @@ Mixture.Routers.App = Mixture.Router.extend({
 
   collectionsShow: function(slug) {
     this.appView.primaryNavView.navChange("c/" + slug);
-    
+
     var mixCollection = new Mixture.Models.MixCollection({
       slug: slug
     });
@@ -136,7 +109,7 @@ Mixture.Routers.App = Mixture.Router.extend({
     // gotta grab the years for the collection first
     mixCollection.years(
       _.bind(function(years) {
-        
+
         var headerView = new Mixture.Views.MixCollections.Years({
           title: mixCollection.title(),
           model: mixCollection,
@@ -167,14 +140,14 @@ Mixture.Routers.App = Mixture.Router.extend({
     var view = new Mixture.Views.Content({
       headerView: (new Mixture.Views.Shared.Title({
         title: 'Your Favorites'
-      })),      
+      })),
       innerContentView: (new Mixture.Views.Mixes.FavoritesCollection({
         collection: collection
       }))
     });
 
     this.swap(view);
-    
+
     // if we are autheticated then fetch it.
     // else the user model will call this
     // once the user is authenticated
@@ -195,7 +168,7 @@ Mixture.Routers.App = Mixture.Router.extend({
       headerView: (new Mixture.Views.Search.Header({
         query: query,
         collection: collection
-      })),      
+      })),
       innerContentView: (new Mixture.Views.Mixes.Collection({
         collection: collection
       }))

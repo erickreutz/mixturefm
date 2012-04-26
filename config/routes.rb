@@ -1,6 +1,4 @@
 Mixture::Application.routes.draw do
-  get "mixes/show"
-
   namespace :api do
     namespace :v0 do
 
@@ -74,7 +72,6 @@ Mixture::Application.routes.draw do
   get 'recent', to: 'mixture#index'
   get 'popular', to: 'mixture#index'
   get 'u/favorites', to: 'mixture#index'
-  get 'contribute', to: 'mixture#index'
   get 'm/:id', to: 'mixes#show'
   get 'collections', to: 'mixture#index'
   get 'ios', to: 'mixture#index'

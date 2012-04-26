@@ -55,15 +55,11 @@ Mixture.Views.Header = Mixture.View.extend({
 	},
 
 	authenticated: function() {
-		this.$('#facebook').fadeOut('fast').promise().done(_.bind(function() {
-			this.$('#contribute').fadeIn('fast');
-		}, this));
+		this.$('#facebook').fadeOut('fast');
 	},
 
 	deauthenticated: function() {
-		this.$('#contribute').fadeOut('fast').promise().done(_.bind(function() {
-			this.$('#facebook').fadeIn('fast');
-		}, this));
+		this.$('#facebook').fadeIn('fast');
 	},
 
 	leave: function() {
