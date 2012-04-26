@@ -22,7 +22,6 @@ gem 'carrierwave-mongoid', require: 'carrierwave/mongoid'
 gem 'carrierwave_backgrounder', git: 'git://github.com/lardawge/carrierwave_backgrounder.git'
 gem 'fog'
 gem 'unicorn'
-# gem 'taglib-ruby', require: 'taglib', git: 'https://github.com/pjkelly/taglib-ruby.git'
 gem 'meta-tags', require: 'meta_tags'
 
 # For admin section
