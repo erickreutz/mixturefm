@@ -10,7 +10,6 @@ class User
   field :api_key, type: String
   field :admin, type: Boolean, default: false
   has_and_belongs_to_many :favorites, inverse_of: :favoriters, class_name: "Mix", autosave: true
-  has_many :contributed_mixes, inverse_of: :contributor, class_name: "Mix"
 
 
   set_callback(:create, :before) do |document|

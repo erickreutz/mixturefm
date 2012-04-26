@@ -14,7 +14,7 @@ Mixture.Models.Mix = Mixture.Model.extend({
   validate: function(attrs) {
     var errors = [];
     if (this.isNew()) {
-      
+
     } else {
       if ( !attrs.collection && (_.isEmpty(attrs.mix_collection_id) || attrs.mix_collection_id === "-- choose a collection --") )
         errors.push("Mix Collection can't be blank");
@@ -41,12 +41,12 @@ Mixture.Models.Mix = Mixture.Model.extend({
       });
     };
     $.ajax({
-      type: 'post',
-      url: '/api/v0/audios/' + this.audio.id + '/stream',
+      type: 'get',
+      url: '/api/v0/mixes/' + this.id + '/stream',
       dataType: 'json',
       success: function(response) {
         if (response.stream) {
-          if (callback) callback(response.stream);          
+          if (callback) callback(response.stream);
         } else {
           error();
         }
@@ -81,7 +81,7 @@ Mixture.Models.Mix = Mixture.Model.extend({
       "performersDelimited": function() {
         return _.map(this.performers, function(p) { return p.name }).join(', ');
       },
-      withoutHTML: withoutHTML 
+      withoutHTML: withoutHTML
     });
 
     return Mustache.render(template, data);
@@ -90,7 +90,7 @@ Mixture.Models.Mix = Mixture.Model.extend({
   played: function() {
     if (this.markedAsPlayed) return;
     this.markedAsPlayed = true;
-    
+
     var playCount = this.get('play_count');
     this.set('play_count', (playCount + 1)) && $.ajax({
       type: 'PUT',
@@ -137,14 +137,14 @@ Mixture.Collections.MixRegistry = Backbone.Collection.extend({
   If the collection does not have this mix it will add it.
 
   If it does already have this mix registed then it will update
-  its attributes so it matches the mix being registed. 
+  its attributes so it matches the mix being registed.
 
   This fixes where we load mixes before a user is logged in
   so we can make sure all the coreect models are marked as favorites, etc.
 
   This has the potential to get pretty big.
   I think we could fix it up a little.
-  We could clear it after the user is logged in. 
+  We could clear it after the user is logged in.
   and if the mix isnt being played or a user favorite
   then I dont think it needs to be in here.
   */
@@ -185,7 +185,7 @@ Mixture.Collections.Mixes = Support.InfiniteCollection.extend({
     } else if (year === 'all') {
       this.year = null;
     } else {
-      this.year = year;     
+      this.year = year;
     };
 
     this.page = 1;
