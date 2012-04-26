@@ -29,7 +29,7 @@ Mixture.Views.Mixes.ListItem = Mixture.View.extend({
 		var queued = this.model.isQueued;
 		var data = _.extend(this.model.toJSON(), {
 			"prettyDuration": function() {
-				return Mixture.Util.time.secondsToTime(this.audio.duration)
+				return Mixture.Util.time.secondsToTime(this.duration)
 			},
 			queued: queued,
 			"performersDelimited": function() {
@@ -43,8 +43,8 @@ Mixture.Views.Mixes.ListItem = Mixture.View.extend({
 				month    = Mixture.Util.time.monthsShort[date.getMonth()],
 				day      = date.getDate(),
 				year     = date.getFullYear()
-				
-				return month + ' ' + day + ', ' + year; 
+
+				return month + ' ' + day + ', ' + year;
 			}
 		});
 

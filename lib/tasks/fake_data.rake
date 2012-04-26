@@ -1,8 +1,8 @@
 namespace :db do
 	namespace :fake do
 		task :mixes => :environment do
-			
-			[Mix, MixCollection, Performer, Audio].each(&:delete_all)
+
+			[Mix, MixCollection, Performer].each(&:delete_all)
 
 			# Performers
 			30.times do |n|
@@ -15,22 +15,17 @@ namespace :db do
 			end
 
 			# Mixes
-			500.times do |n|
+			5.times do |n|
 				mix = Mix.new({
 						caption: Forgery(:lorem_ipsum).words( rand(1..4) ),
 						debuted_at: rand(1..700).days.ago,
-						published_at: [ nil, rand(1..60).days.ago ].sample,
 						mix_collection_id: MixCollection.all.sample.id,
 						performer_tokens: Performer.only([:id]).sample(3).map {|x| x.id.to_s }.join(","),
 						play_count: rand(1..300),
-						contributor: User.first,
-						published_at: Time.now
+						sc_url: "http://soundcloud.com/serialmc/joker-essential-mix-sat-2011"
 					}, as: :admin
 				)
 
-				audio = Audio.new({duration: 420, bitrate: 320, sample_rate: 44100}, as: :admin)
-				audio.save(validate: false)
-				mix.audio = audio
 				mix.save!
 			end
 

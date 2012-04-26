@@ -12,7 +12,7 @@ Mixture.Views.Mixes.Linked = Mixture.View.extend({
 			'updatePlayCount',
 			'updateFavorite'
 		);
-		
+
 		this.model.on('change:favorite_count', this.updateFavoriteCount);
 		this.model.on('change:play_count', this.updatePlayCount);
 		this.model.on('change:is_favorite', this.updateFavorite);
@@ -25,7 +25,7 @@ Mixture.Views.Mixes.Linked = Mixture.View.extend({
 		if (!this.model.isValid()) return this;
 		var data = _.extend(this.model.toJSON(), {
 			"prettyDuration": function() {
-				return Mixture.Util.time.secondsToTime(this.audio.duration)
+				return Mixture.Util.time.secondsToTime(this.duration)
 			},
 			"performersDelimited": function() {
 				return _.map(this.performers, function(p) { return p.name }).join(', ');

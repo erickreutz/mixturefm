@@ -6,7 +6,6 @@ Mixture.Models.Mix = Mixture.Model.extend({
     _.bindAll(this, '_onFavorited', '_onUnfavorited');
     this.isQueued = false;
     this.markedAsPlayed = false;
-    this.audio = new Mixture.Models.Audio(options.audio);
     this.on('favorited', this._onFavorited);
     this.on('unfavorited', this._onUnfavorited);
   },
@@ -56,19 +55,6 @@ Mixture.Models.Mix = Mixture.Model.extend({
         callback(false);
       }
     });
-  },
-
-  parse: function(response) {
-    if (!!this.audio) {
-      this.audio.set(response['audio']);
-      delete response['audio'];
-    };
-
-    return response;
-  },
-
-  toJSON: function() {
-    return _.extend( _.clone(this.attributes), { audio: _.clone(this.audio.attributes) } );
   },
 
   title: function(withoutHTML) {

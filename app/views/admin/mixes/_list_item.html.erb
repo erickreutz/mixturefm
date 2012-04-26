@@ -4,10 +4,10 @@
 	</div>
 	<div>
 		<p class="audio-processing">
-			<% if !list_item.audio.sound.present? || list_item.audio.sound_processing? %>
-				<span class="label label-warning">Audio Processing...</span>
+			<% if list_item.processing? %>
+				<span class="label label-warning">Processing...</span>
 			<% else %>
-				<span class="label label-success">Audio Processing Complete</span>
+				<span class="label label-success">Processing Complete</span>
 			<% end %>
 		</p>
 	</div>

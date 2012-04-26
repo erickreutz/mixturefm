@@ -48,12 +48,12 @@ Mixture.Models.Player = Mixture.Model.extend({
 			}
 
 			var options = _.extend(defaultOptions, {
-				id: 'sound-' + this.mix.audio.id,
+				id: 'sound-' + this.mix.id,
 				url: url
 			});
 
 			this.trigger('sound:beforequeue', this);
-			
+
 			if (soundManager.ok()) {
 				this.sound = soundManager.createSound(options);
 				this.trigger('sound:queue', this);
@@ -69,14 +69,14 @@ Mixture.Models.Player = Mixture.Model.extend({
 
 	percentLoaded: function() {
 		var durationLoaded = (this.sound.duration / 1000);
-		var percentLoaded = (durationLoaded / this.mix.audio.get('duration')).toFixed(2);
+		var percentLoaded = (durationLoaded / this.mix.get('duration')).toFixed(2);
 		return (percentLoaded * 100).toFixed(2);
 	},
 
 	percentPlayed: function() {
-		var duration = this.mix.audio.get('duration');
+		var duration = this.mix.get('duration');
 		var position = (this.sound.position / 1000);
-		
+
 		//if the mix is loaded use the duration from sound manager
 		if (this.sound.loaded) {
 			var duration = (this.sound.duration / 1000).toFixed(0);
@@ -92,7 +92,7 @@ Mixture.Models.Player = Mixture.Model.extend({
 		if (this.sound.loaded) {
 			return (this.sound.duration / 1000).toFixed(0);
 		} else {
-			return this.mix.audio.get('duration');
+			return this.mix.get('duration');
 		}
 	},
 
