@@ -10,6 +10,8 @@ Mixture.Models.Mix = Mixture.Model.extend({
     this.on('unfavorited', this._onUnfavorited);
   },
 
+  validate: function() {},
+
   streamUrl: function(callback) {
     var error = function() {
       noty({
