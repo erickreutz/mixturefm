@@ -1,7 +1,7 @@
 class MixPublicationEmailJob < Struct.new(:user_id, :mix_id)
 	def before
 		@user = User.find(user_id)
-		@mix  = Mix.find(mix_id)
+		@mix  = Mix.unscoped.find(mix_id)
 	end
 
 	def perform

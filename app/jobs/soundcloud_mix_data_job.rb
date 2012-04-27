@@ -2,7 +2,7 @@ class SoundcloudMixDataJob < Struct.new(:mix_id)
   @queue = :soundcloud
 
   def before(job)
-    @mix = Mix.find(mix_id)
+    @mix = Mix.unscoped.find(mix_id)
     @mix.update_attribute(:processing, true)
   end
 
