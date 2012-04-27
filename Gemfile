@@ -28,6 +28,7 @@ gem 'soundcloud', git: 'git://github.com/andrejj/soundcloud-ruby.git'
 # For admin section
 gem 'twitter-bootstrap-rails', '~> 2.0.1'
 gem 'simple_form', '~> 2.0.0'
+gem 'jquery-rails', '>= 1.0.12'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -35,9 +36,6 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 	gem 'uglifier', '>= 1.0.3'
 	gem 'less-rails'
-
-	# Admin section
-	gem 'jquery-rails'
 end
 
 group :test, :development do
