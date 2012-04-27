@@ -12,6 +12,15 @@ class Admin::MixesController < Admin::BaseController
 	def show; end
 	def edit; end
 
+	def create
+		@mix = Mix.new params[:mix], as: :admin
+		if @mix.save
+			redirect_to admin_mix_path(@mix), notice: 'Mix created.'
+		else
+			render 'new'
+		end
+	end
+
 	def update
 		@mix.assign_attributes(params[:mix], as: :admin)
 		if @mix.save
