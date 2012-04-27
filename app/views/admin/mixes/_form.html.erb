@@ -31,9 +31,9 @@
 		<%= f.input :sc_url %>
 		<%= f.input :caption %>
 		<%= f.input :performer_tokens, input_html: { data: { pre: @mix.performers.to_json } } %>
-		<%= f.input :debuted_at,
+ 		<%= f.input :debuted_at,
 			order: [:day, :month, :year],
-			:start_year => Date.today.year - 25,
+			:start_year => Date.today.year - 30,
 			:end_year => Date.today.year,
 			as: :date %>
 	</fieldset>

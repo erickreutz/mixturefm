@@ -71,15 +71,4 @@ class Api::V0::MixesController < Api::BaseController
 	def stream
 		render json: { stream: @mix.streamable_url }
 	end
-
-	def create
-		@mix = Mix.new params[:mix]
-		@mix.contributor = @current_user
-
-		if @mix.save
-			render json: @mix.as_json(user: @current_user)
-		else
-			render json: @mix.errors.full_messages, status: :not_acceptable
-		end
-	end
 end

@@ -5,7 +5,7 @@
 			<% if @mix.processed? %>
 				<span class="label label-success">Processing complete</span>
 			<% else %>
-				<% if list_item.processing? %>
+				<% if @mix.processing? %>
 					<span class="label label-warning">Processing...</span>
 				<% else %>
 					<span class="label label-error">Processing failed or is queued for processing.</span>

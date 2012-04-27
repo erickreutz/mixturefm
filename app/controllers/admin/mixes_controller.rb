@@ -14,6 +14,8 @@ class Admin::MixesController < Admin::BaseController
 
 	def create
 		@mix = Mix.new params[:mix], as: :admin
+		Rails.logger.info "MIX PARAMS #{ params[:mix] }"
+
 		if @mix.save
 			redirect_to admin_mix_path(@mix), notice: 'Mix created.'
 		else
