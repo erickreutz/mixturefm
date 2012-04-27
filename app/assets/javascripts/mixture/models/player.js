@@ -110,7 +110,7 @@ Mixture.Models.Player = Mixture.Model.extend({
 
 	_whileplaying: function() {
 		// log('position:', this.sound.position(), 'duration:', this.sound.duration());
-		if (this.percentPlayed() >= 15) {
+		if (this.percentPlayed() >= 5) {
 			this.mix.played();
 		};
 		this.trigger('sound:whileplaying', this);
