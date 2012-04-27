@@ -77,7 +77,7 @@ Mixture.Models.User = Mixture.Model.extend({
 			url: url,
 			type: 'POST',
 			success: _.bind(function() {
-
+				// success
 			}, this),
 			error: _.bind(function() {
 				noty({

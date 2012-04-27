@@ -10,28 +10,6 @@ Mixture.Models.Mix = Mixture.Model.extend({
     this.on('unfavorited', this._onUnfavorited);
   },
 
-  validate: function(attrs) {
-    var errors = [];
-    if (this.isNew()) {
-
-    } else {
-      if ( !attrs.collection && (_.isEmpty(attrs.mix_collection_id) || attrs.mix_collection_id === "-- choose a collection --") )
-        errors.push("Mix Collection can't be blank");
-      if ( !_.isNumber(attrs.debuted_at) )
-        errors.push("Debut Date can't be blank");
-      if ( !_.isNumber(attrs.created_at) )
-        errors.push("Create Date can't be blank");
-      if ( !_.isBoolean(attrs.published) )
-        errors.push("Published Date can't be blank");
-      if ( !_.isArray(attrs.performers) )
-        errors.push("Performers can't be blank");
-      if ( !_.isNumber(attrs.play_count) )
-        errors.push("Play Count date can't be blank");
-    }
-
-    if (errors.length > 0) return errors;
-  },
-
   streamUrl: function(callback) {
     var error = function() {
       noty({
@@ -92,7 +70,7 @@ Mixture.Models.Mix = Mixture.Model.extend({
     var curr_count = this.get('favorite_count');
     this.set({
       'favorite_count': (curr_count + 1),
-      is_favorite: true
+      'is_favorite': true
     });
   },
 
@@ -100,7 +78,7 @@ Mixture.Models.Mix = Mixture.Model.extend({
     var curr_count = this.get('favorite_count');
     this.set({
       'favorite_count': (curr_count - 1),
-      is_favorite: false
+      'is_favorite': false
     });
   },
 

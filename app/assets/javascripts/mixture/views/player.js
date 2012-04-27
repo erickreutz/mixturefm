@@ -216,7 +216,7 @@ Mixture.Views.Player = Mixture.View.extend({
         resizable: "1"
       },
       ops = [];
-    
+
     var url = Mustache.render(template, {
       url: this.model.mix.get('short_url'),
       text: '♫ ' + this.model.mix.title(true) + ' on @mixturefm:'
