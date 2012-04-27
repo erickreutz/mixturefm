@@ -5,12 +5,15 @@ class Admin::MixesController < Admin::BaseController
 		@mixes = Mix.unscoped.paginate(page: params[:page])
 	end
 
+	def new
+		@mix = Mix.new
+	end
+
 	def show; end
 	def edit; end
 
 	def update
-		Rails.logger.info params
-		@mix.write_attributes(params[:mix], as: :admin)
+		@mix.assign_attributes(params[:mix], as: :admin)
 		if @mix.save
 			redirect_to admin_mix_path(@mix), notice: "Mix has been updated."
 		else

@@ -10,7 +10,7 @@ class Admin::MixCollectionsController < Admin::BaseController
 	def edit; end
 
 	def update
-		@mix_collection.write_attributes params[:mix_collection], as: :admin
+		@mix_collection.assign_attributes params[:mix_collection], as: :admin
 		if @mix_collection.save
 			redirect_to admin_mix_collection_path(@mix_collection), notice: 'Mix Collection updated.'
 		else

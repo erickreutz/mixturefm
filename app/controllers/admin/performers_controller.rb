@@ -10,7 +10,7 @@ class Admin::PerformersController < Admin::BaseController
 	def edit; end
 
 	def update
-		@performer.write_attributes params[:performer], as: :admin
+		@performer.assign_attributes params[:performer], as: :admin
 		if @performer.save
 			redirect_to admin_performer_path(@performer), notice: 'Performer updated.'
 		else
