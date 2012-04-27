@@ -1,23 +1,35 @@
 <div class="row-fluid">
 	<div class="span12">
+		<h2>Processing</h2>
+		<p>
+			<% if @mix.processed? %>
+				<span class="label label-success">Processing complete</span>
+			<% else %>
+				<% if list_item.processing? %>
+					<span class="label label-warning">Processing...</span>
+				<% else %>
+					<span class="label label-error">Processing failed or is queued for processing.</span>
+				<% end %>
+			<% end %>
+		</p>
+		<hr/>
 		<h2>
 			Basic Info
-			<% if @mix.published? %>
-				<%= link_to "Unpublish", unpublish_admin_mix_path(@mix), method: :put, class: 'btn btn-large pull-right' %></a>
-			<% else %>
-				<%= link_to "Publish", publish_admin_mix_path(@mix), method: :put, class: 'btn btn-large pull-right' %>
-			<% end %>
 		</h2>
 		<h4>ID</h4>
 		<p><%= @mix.id %></p>
-		<h4>Contributor</h4>
-		<p><%= @mix.contributor.full_name %> (<%= @mix.contributor.id %>)</p>
 		<h4>Collection</h4>
 		<p><%= @mix.mix_collection.name %></p>
 		<h4>Caption</h4>
 		<p><%= @mix.caption %></p>
 		<h4>Performers</h4>
 		<p><%= @mix.performers.collect { |p| p.name }.join(', ') %></p>
+		<h4>Soundcloud URL</h4>
+		<p><%= link_to @mix.sc_url, @mix.sc_url, target: '_blank' %></p>
+		<h4>Soundcloud Stream URL</h4>
+		<p><%= link_to @mix.streamable_url, @mix.streamable_url, target: '_blank' %></p>
+		<h4>Soundcloud ID</h4>
+		<p><%= link_to @mix.sc_id %></p>
 		<h4>Short URL</h4>
 		<p><%= link_to @mix.short_url, @mix.short_url, { target: '_blank' } %></p>
 		<h4>Debuted</h4>
@@ -25,29 +37,6 @@
 		<h4>Created</h4>
 		<p><%= time_tag @mix.created_at %></p>
 		<hr/>
-		<h2>Audio Info</h2>
-		<p>
-			<% if @mix.audio.sound.present? %>
-				<%= link_to "Listen", @mix.audio.public_stream_url, class: 'btn btn-large', target: '_blank' %>
-			<% else %>
-				<span class="label label-warning">Processing...</span>
-			<% end %>
-		</p>
-		<h4>Audio ID</h4>
-		<p><%= @mix.id %></p>
-		<h4>Duration</h4>
-		<p><%= @mix.audio.duration %> seconds</p>
-		<h4>Sample Rate</h4>
-		<p><%= @mix.audio.sample_rate %></p>
-		<h4>Bitrate</h4>
-		<p><%= @mix.audio.bitrate %></p>
-		<h4>Tag Meta</h4>
-		<dl>
-			<% @mix.audio.tag_meta.each do |key, value| %>
-				<dt><%= key.capitalize %></dt>
-				<dd><%= value %></dd>
-			<% end %>
-		</dl>
 
 		<div class="well">
 			<%= link_to "Edit", edit_admin_mix_path(@mix), class: 'btn btn-small' %>

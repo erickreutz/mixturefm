@@ -69,7 +69,7 @@ class Api::V0::MixesController < Api::BaseController
 	end
 
 	def stream
-		render json: { stream: @mix.sc_stream_url + "?client_id=#{ ENV['SOUNDCLOUD_CLIENT_ID'] }" }
+		render json: { stream: @mix.streamable_url }
 	end
 
 	def create

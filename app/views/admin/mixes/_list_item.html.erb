@@ -4,10 +4,14 @@
 	</div>
 	<div>
 		<p class="audio-processing">
-			<% if list_item.processing? %>
-				<span class="label label-warning">Processing...</span>
+			<% if list_item.processed? %>
+				<span class="label label-success">Processing complete</span>
 			<% else %>
-				<span class="label label-success">Processing Complete</span>
+				<% if list_item.processing? %>
+					<span class="label label-warning">Processing...</span>
+				<% else %>
+					<span class="label label-error">Processing failed or is queued for processing.</span>
+				<% end %>
 			<% end %>
 		</p>
 	</div>
