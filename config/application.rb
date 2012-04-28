@@ -5,6 +5,7 @@ require "action_mailer/railtie"
 require "active_resource/railtie"
 require "rails/test_unit/railtie"
 require "sprockets/railtie"
+require "tire/rails/logger"
 
 if defined?(Bundler)
   Bundler.require(*Rails.groups(:assets => %w(development test)))
