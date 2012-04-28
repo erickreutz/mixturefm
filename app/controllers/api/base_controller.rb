@@ -1,4 +1,5 @@
 class Api::BaseController < ApplicationController
+
 	private
 		def authenticate_with_api_key
 	    key = request.headers["APIKey"] || params[:api_key]

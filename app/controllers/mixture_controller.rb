@@ -1,4 +1,5 @@
 class MixtureController < ApplicationController
+
   def index
   	set_meta_tags open_graph: {
   		site_name: 'Mixture.fm - Mixes for the Masses',
