@@ -7,7 +7,7 @@ class MixesController < ApplicationController
 	  	title:	@mix.title,
 	  	type: 'mix',
 	  	url: @mix.short_url,
-	  	image: 'http://ia.media-imdb.com/rock.jpg'
+	  	image: 'http://mixture.fm/assets/fbicon.png'
 	  }
   	render 'mixture/blank'
   end
