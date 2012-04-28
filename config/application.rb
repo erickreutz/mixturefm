@@ -15,10 +15,9 @@ HOST            = $mixture_config[:host]
 
 module Mixture
   class Application < Rails::Application
-    # require 'rack/raw_upload'
+    config.autoload_paths += ["./app/jobs", "./app/uploaders", "./app/observers", "./lib/middleware"]
 
 
-    # config.middleware.use 'Rack::RawUpload', explicit: true
     config.middleware.use OmniAuth::Builder do
       provider :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET']
       configure do |config|
@@ -29,6 +28,9 @@ module Mixture
         Rails.logger.info "OMNIAUTH ERROR = #{env['omniauth.error'].inspect}"
       end
     end
+
+    config.middleware.use "WwwMiddleware"
+
 
     config.action_mailer.delivery_method   = :postmark
     config.action_mailer.postmark_settings = { api_key: ENV['POSTMARK_API_KEY'] }
@@ -44,7 +46,5 @@ module Mixture
     config.filter_parameters += [:password]
     config.assets.enabled = true
     config.assets.version = '1.0'
-
-    config.autoload_paths += ["./app/jobs", "./app/uploaders", "./app/observers"]
   end
 end
