@@ -4,23 +4,22 @@ class MixCollection
   include Mongoid::Slug
 
   paginates_per 12
-  
+
   field :name, type: String
   field :mixes_count, type: Integer, default: 0
-  field :mixes_published_count, type: Integer, default: 0
   slug :name
-  
+
   has_many :mixes
 
   validates_presence_of :name, message: "cannot be blank."
   validates_uniqueness_of :name, message: "is already taken."
 
-  # Do this later. 
+  # Do this later.
   attr_accessible :name, as: [ :default, :admin ]
 
   class << self
     def popular
-      order_by([:mixes_published_count, :desc])
+      order_by([:mixes_count, :desc])
     end
 
     def paginate(options = {})
@@ -39,7 +38,7 @@ class MixCollection
       id: id,
   		name: name,
       slug: slug,
-  		mix_count: mixes_published_count
+  		mix_count: mixes_count
   	}
   end
 
