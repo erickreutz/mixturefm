@@ -37,7 +37,6 @@ module Mixture
     config.action_mailer.postmark_settings = { api_key: ENV['POSTMARK_API_KEY'] }
 
     config.mongoid.observers = :mix_observer, :performer_observer, :mix_collection_observer
-    config.mongoid.logger = Logger.new($stdout, :warn)
 
     config.generators do |g|
       g.test_framework      :test_unit, fixture_replacement: :fabrication
