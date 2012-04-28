@@ -67,7 +67,12 @@ Mixture.Models.User = Mixture.Model.extend({
 	},
 
 	favorite: function(mix) {
-		if (!this.isAuthenticated()) return;
+		if (!this.isAuthenticated()) {
+			// would be cool to auto fave mix after they have logged in. Later though.
+			this.promptLogin(function() {});
+			return;
+		}
+
 		var url = '/api/v0/u/favorites/' + mix.id;
 		var user = this;
 		user.trigger('favorited', mix);
