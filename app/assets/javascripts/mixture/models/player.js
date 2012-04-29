@@ -117,37 +117,37 @@ Mixture.Models.Player = Mixture.Model.extend({
 	},
 
 	_onload: function(success) {
-		log('onload');
+//		log('onload');
 		this.trigger('sound:load', this, success);
 	},
 
 	_onplay: function() {
-		log('onplay');
+//		log('onplay');
 		this.trigger('sound:play', this);
 	},
 
 	_onpause: function() {
-		log('onpause');
+//		log('onpause');
 		this.trigger('sound:pause', this);
 	},
 
 	_onstop: function() {
-		log('onstop');
+//		log('onstop');
 		this.trigger('sound:stop', this);
 	},
 
 	_onfinish: function() {
-		log('onfinish');
+//		log('onfinish');
 		this.trigger('sound:finish', this);
 	},
 
 	_onpause: function() {
-		log('onpause');
+//		log('onpause');
 		this.trigger('sound:pause', this);
 	},
 
 	_onresume: function() {
-		log('onresume');
+//		log('onresume');
 		this.trigger('sound:resume', this);
 	}
 });

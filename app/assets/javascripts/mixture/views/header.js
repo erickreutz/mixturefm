@@ -45,7 +45,6 @@ Mixture.Views.Header = Mixture.View.extend({
 	login: function(evt) {
 		evt.preventDefault();
 		var done = _.bind(function(response) {
-			log('response', response);
 			if (response.status === "connected") {
 				var authToken = response.authResponse.accessToken;
 				Mixture.user.authenticate(authToken);

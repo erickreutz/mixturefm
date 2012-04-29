@@ -8,7 +8,7 @@
 
 soundManager.url = '/flash/soundmanager2/';
 soundManager.useHTML5Audio = true;
-soundManager.debugMode = true;
+soundManager.debugMode = <%= Rails.env.production? ? "false" : "true" %>;
 soundManager.consoleOnly = true;
 soundManager.preferFlash = true;
 soundManager.useHighPerformance = false;

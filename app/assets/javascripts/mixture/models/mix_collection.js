@@ -6,12 +6,12 @@ Mixture.Models.MixCollection = Mixture.Model.extend({
 		this.mixes = new Mixture.Collections.Mixes();
 		this.mixes.baseUrl = '/api/v0/collections/' + this.id + '/mixes';
 	},
-			
+
 	title: function() {
 		var t = this.get('name') ? this.get('name') : 'loading...';
 		return "Collection - " + t;
 	},
-	
+
 	years: function(callback)	 {
 		$.ajax({
 			type: 'GET',
@@ -21,7 +21,7 @@ Mixture.Models.MixCollection = Mixture.Model.extend({
 				if (callback) callback(resp)
 			}, this),
 			error: _.bind(function(xhr, type) {
-				log('error', xhr, error);
+//				log('error', xhr, error);
 			}, this)
 		});
 	}
@@ -30,7 +30,7 @@ Mixture.Models.MixCollection = Mixture.Model.extend({
 Mixture.Collections.MixCollections = Support.InfiniteCollection.extend({
 	model: Mixture.Models.MixCollection,
 	perPage: 15,
-	
+
 	initialize: function(models, options) {
 		this.baseUrl = options.baseUrl;
 		Support.InfiniteCollection.prototype.initialize.apply(this, [models, options]);

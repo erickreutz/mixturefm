@@ -122,12 +122,9 @@ Mixture.Views.Player = Mixture.View.extend({
     this.$totalTime.html(totalTime);
   },
 
-  _onload: function(player, success) {
-    log('view:onload');
-  },
+  _onload: function(player, success) {},
 
   _onplay: function(player) {
-    log('view:onplay');
     this.$playPauseButton
       .removeClass('play')
       .addClass('pause')
@@ -135,20 +132,15 @@ Mixture.Views.Player = Mixture.View.extend({
   },
 
   _onpause: function(player) {
-    log('view:onpause');
     this.$playPauseButton
       .removeClass('pause')
       .addClass('play')
       .children('.icon').html('G');
   },
 
-  _onstop: function(player) {
-    log('view:onstop');
-
-  },
+  _onstop: function(player) {},
 
   _onfinish: function(player) {
-    log('view:onfinish');
     this.$playPauseButton
       .removeClass('pause')
       .addClass('play')
@@ -156,7 +148,6 @@ Mixture.Views.Player = Mixture.View.extend({
   },
 
   _onresume: function(player) {
-    log('view:resume');
     this.$playPauseButton
       .removeClass('play')
       .addClass('pause')
@@ -197,7 +188,6 @@ Mixture.Views.Player = Mixture.View.extend({
     };
 
     var callback = function(response) {
-      log('response', response);
       return true;
     };
 
