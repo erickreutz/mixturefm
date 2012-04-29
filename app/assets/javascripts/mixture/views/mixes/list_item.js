@@ -40,9 +40,9 @@ Mixture.Views.Mixes.ListItem = Mixture.View.extend({
 			},
 			"prettyDebutedAt": function() {
 				var date = new Date( parseInt(this.debuted_at) * 1000),
-				month    = Mixture.Util.time.monthsShort[date.getMonth()],
-				day      = date.getDate(),
-				year     = date.getFullYear()
+				month    = Mixture.Util.time.monthsShort[date.getUTCMonth()],
+				day      = date.getUTCDate(),
+				year     = date.getUTCFullYear();
 
 				return month + ' ' + day + ', ' + year;
 			}
