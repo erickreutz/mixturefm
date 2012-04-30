@@ -8,7 +8,8 @@ class Api::V0::MixesController < Api::BaseController
 		@models = @mix_collection.mixes
 		@models = @models.in_year(params[:year]) if !params[:year].blank?
 
-		@models = @models.order_by([:debuted_at, params[:year].blank? ? :desc : :asc])
+
+		@models = @models.order_by([:debuted_at, :desc])
 			.page(params[:page])
 			.per(params[:per_page])
 
