@@ -43,7 +43,7 @@ body {
 	width: 100%;
 	height: 100%;
 	background-image: url(/assets/ios-splash.png);
-	background-color: #01abad;	
+	background-color: #01abad;
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: 236px 322px;
@@ -101,7 +101,26 @@ body {
 		height: 100%;
 		top: 0px;
 		left: 770px;
-// 		background: red;
+
+		#toTop {
+			margin-left: 10px;
+			.border-radius(5px);
+			width: 100px;
+			font-weight: bold;
+			color: rgba(255, 255, 255, 0.85);
+			text-decoration: none;
+			background: rgba(255, 255, 255, 0.25);
+			padding: 10px;
+			display: block;
+			text-align: center;
+			position: fixed;
+			top: 35px;
+
+			&:hover {
+				color: rgba(255, 255, 255, 0.95);
+				background: rgba(255, 255, 255, 0.35);
+			}
+		}
 	}
 }
 
@@ -128,7 +147,7 @@ body {
 #content {
 	padding: 10px;
 	position: relative;
-	
+
 	.header {
 
 		h2 {
