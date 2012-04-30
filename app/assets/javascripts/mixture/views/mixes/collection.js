@@ -5,7 +5,7 @@ Mixture.Views.Mixes.Collection = Mixture.View.extend({
 
 	initialize: function(options) {
 		_.bindAll(this, 'render', 'addAll', 'addOne','filtered');
-		
+
 		this.moreButtonView = new Mixture.Views.Shared.MoreButton({
 			collection: this.collection
 		});
@@ -21,7 +21,7 @@ Mixture.Views.Mixes.Collection = Mixture.View.extend({
 		this.$el.empty().html(html);
 		this.appendChild(this.moreButtonView);
 		this.delegateEvents();
-		return this;	
+		return this;
 	},
 
 	// called before thec collection is filter.
@@ -35,7 +35,7 @@ Mixture.Views.Mixes.Collection = Mixture.View.extend({
 			this.$('.mixes').html('<div class="alert alert-info">No Results...</div>');
 		} else {
 			this.$('.mixes').empty();
-			this.collection.each(this.addOne);						
+			this.collection.each(this.addOne);
 		}
 	},
 
@@ -56,9 +56,13 @@ Mixture.Views.Mixes.Collection = Mixture.View.extend({
 });
 
 Mixture.Views.Mixes.FavoritesCollection = Mixture.Views.Mixes.Collection.extend({
-	addOne: function(model) {
+	addOne: function(model, collection, options) {
 		var view = new Mixture.Views.Mixes.ListItem({model: model});
-   	this.appendChildInto(view, this.$('.mixes'));
+   	if (options.index === 0) {
+   		this.prependChildInto(view, this.$('.mixes'));
+   	} else {
+			this.appendChildInto(view, this.$('.mixes'));
+   	}
   	model.bind('remove', _.bind(view.leave, view));
 	}
 });

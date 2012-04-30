@@ -25,9 +25,8 @@ GIT
     carrierwave_backgrounder (0.0.6)
       carrierwave (~> 0.5)
 
-GIT
-  remote: git@github.com:erickreutz/backbone-support.git
-  revision: 3048c2667fbccffec428e0bc03a7fbc1509e91f3
+PATH
+  remote: /Volumes/Secondary/Users/eric/Projects/butter/Mixture.fm/development/backbone-support
   specs:
     backbone-support (0.2.0)
 

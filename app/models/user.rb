@@ -9,7 +9,7 @@ class User
   field :last_name, type: String
   field :api_key, type: String
   field :admin, type: Boolean, default: false
-  has_many :favorites
+  has_many :favorites, order: [[ :created_at, :desc ]]
 
 
   set_callback(:create, :before) do |document|

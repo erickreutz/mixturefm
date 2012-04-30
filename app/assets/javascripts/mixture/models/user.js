@@ -120,7 +120,7 @@ Mixture.Models.User = Mixture.Model.extend({
 	},
 
 	_onFavorited: function(mix) {
-		this.favorites.add(mix);
+		this.favorites.add(mix, {at: 0});
 	},
 
 	_onUnfavorited: function(mix) {
