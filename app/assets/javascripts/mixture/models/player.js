@@ -27,9 +27,6 @@ Mixture.Models.Player = Mixture.Model.extend({
 			onpause: this._onpause,
 			onresume: this._onresume
 		};
-
-		 // interferes with the music im listening to
-		if (window.DEBUG) defaultOptions.volume = 20;
 	},
 
 	queue: function(model) {
