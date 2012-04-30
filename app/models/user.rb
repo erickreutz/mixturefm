@@ -9,7 +9,7 @@ class User
   field :last_name, type: String
   field :api_key, type: String
   field :admin, type: Boolean, default: false
-  has_and_belongs_to_many :favorites, inverse_of: :favoriters, class_name: "Mix", autosave: true
+  has_many :favorites
 
 
   set_callback(:create, :before) do |document|
@@ -54,11 +54,12 @@ class User
   end
 
   def favorite!(mix)
-    self.favorites << mix if !self.favorites.include?(mix)
+    self.favorites.create(mix: mix) if self.favorites.where(mix_id: mix.id).empty?
   end
 
   def unfavorite!(mix)
-    self.favorites.delete(mix)
+    fav = self.favorites.where(mix_id: mix.id).first
+    fav.present? && fav.destroy
   end
 
 end

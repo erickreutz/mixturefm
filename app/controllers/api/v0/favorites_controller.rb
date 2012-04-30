@@ -1,10 +1,12 @@
 class Api::V0::FavoritesController < Api::BaseController
 	before_filter :authenticate_with_api_key
 	before_filter :verify_authenticated_user
-	before_filter :find_mix, only: [:create, :destroy] 
+	before_filter :find_mix, only: [:create, :destroy]
 
 	def index
-		@models = @current_user.favorites.page(params[:page]).per(params[:per_page])
+		@mixes = @current_user.favorites.map(&:mix)
+		@models = Kaminari.paginate_array(@mixes).page(params[:page]).per(params[:per_page])
+
 		resp = {
 			page: @models.current_page,
 			per_page: @models.limit_value,
