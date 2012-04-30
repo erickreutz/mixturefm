@@ -56,7 +56,7 @@ Mixture.Views.App = Mixture.View.extend({
 	},
 
 	showToTop: function() {
-		if ( $(window).scrollTop() >= 300 ) {
+		if ( $(window).scrollTop() >= 900 ) {
 			this.$('#toTop').fadeIn();
 		} else if (this.$('#toTop').is(':visible')) {
 			this.$('#toTop').fadeOut('fast');
