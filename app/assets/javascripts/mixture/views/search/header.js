@@ -16,7 +16,7 @@ Mixture.Views.Search.Header = Mixture.View.extend({
 
 	render: function() {
 		var data = {
-			query: this.query
+			query: unescape(this.query)
 		};
 
 		var html = Mustache.render(this.template, data);
