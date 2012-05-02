@@ -19,7 +19,7 @@ form.search.header {
     font-weight: bold;
     float: left;
 
-    &:focus { 
+    &:focus {
       .box-shadow(inset 0px 0px 3px rgba(0, 0, 0, 0.25));
       border: 1px solid lighten(@grayLight, 10%);
     }
@@ -37,7 +37,7 @@ form.search.header {
 }
 
 .search-wrapper {
-	
+
 	form {
 		margin: 0;
 	}
@@ -89,71 +89,6 @@ form.search.header {
 			background: url(/assets/mag-glass.png) no-repeat;
 		}
 	}
-}
-
-.audio-form {
-  margin-bottom: 20px;
-  margin-top: 20px;
-  border-bottom: 1px solid @grayLighter;
-  .meta {
-    .clearfix();
-    font-size: 12px;
-    color: @grayDark;
-    font-weight: normal;
-    margin-bottom: 5px;
-
-    &.disabled {
-      color: lighten(@grayDark, 50%);
-    }
-
-    .file-name, .amount-uploaded, .amount-total {
-      font-weight: bold;      
-    }
-
-    .file-name {
-      float: left;
-      display: block;
-      width: 355px;
-      line-height: 16px;
-      white-space:nowrap;
-      text-overflow: ellipsis;
-      overflow: hidden;
-    }
-
-    .uploaded {
-      text-align: right;
-      width: 30%;
-      float: right;
-    }
-  }
-
-  .ui-progress-bar {
-    margin-bottom: 15px;
-  }
-
-  .actions {
-//     position: relative;
-    margin-bottom: 15px;
-
-    .browse-button {
-      position: relative;
-      overflow: hidden;
-
-      input[type=file] {
-        position: absolute;
-        top: 0;
-        right: 0;
-        margin: 0;
-        border: solid transparent;
-        border-width: 0 0 100px 200px;
-        opacity: 0;
-        -moz-transform: translate(-320px, 0) scale(4);
-        background: red;
-        direction: ltr;
-        cursor: pointer;
-      }
-    }
-  }
 }
 
 // Forms.less
@@ -503,7 +438,7 @@ select:focus:required:invalid {
   border-color: #ee5f5b;
   &:focus {
     border-color: darken(#ee5f5b, 10%);
-    .box-shadow(0 0 6px lighten(#ee5f5b, 20%));    
+    .box-shadow(0 0 6px lighten(#ee5f5b, 20%));
   }
 }
 
@@ -606,7 +541,7 @@ select:focus:required:invalid {
     .border-radius(3px 0 0 3px);
   }
   .uneditable-input {
-    border-right-color: #ccc;    
+    border-right-color: #ccc;
   }
   .add-on {
     margin-right: 0;
