@@ -14,10 +14,10 @@ class SoundcloudMixDataJob < Struct.new(:mix_id)
   end
 
   def success(job)
-    @mix.update_attributes({
+    @mix.assign_attributes({
       processed_at: DateTime.now,
       processing: false
-    })
+    }, as: :admin)
   end
 
   def after(job)
