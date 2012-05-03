@@ -14,7 +14,10 @@ class SoundcloudMixDataJob < Struct.new(:mix_id)
   end
 
   def success(job)
-    @mix.update_attribute(:processed_at, DateTime.now)
+    @mix.update_attributes({
+      processed_at: DateTime.now,
+      processing: false
+    })
   end
 
   def after(job)
