@@ -28,7 +28,7 @@ html, body {
 body {
 	margin: 0;
 	padding: 0;
-	background: url(/assets/background.png) repeat-x #a3b7cc fixed;
+	background: url(<%= asset_data_uri 'background.png' %>) repeat-x #a3b7cc fixed;
 	font-family: 'Helvetica Neue', Helvetica, sans-serif;
 	-webkit-font-smoothing: antialiased;
 }
@@ -43,7 +43,7 @@ body {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-image: url(/assets/ios-splash.png);
+	background-image: url(<%= asset_data_uri 'ios-splash.png' %>);
 	background-color: #01abad;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -132,7 +132,7 @@ body {
 }
 
 #logo {
-	background: url(/assets/logo.png) no-repeat;
+	background: url(<%= asset_data_uri 'logo.png' %>) no-repeat;
 	display: block;
 	width: 128px;
 	height: 23px;
@@ -160,7 +160,7 @@ body {
 		hr {
 			height: 4px;
 			border: none;
-			background: url(/assets/content-head-bottom-border.png) repeat-x;
+			background: url(<%= asset_data_uri 'content-head-bottom-border.png' %>) repeat-x;
 			margin: 0;
 		}
 
