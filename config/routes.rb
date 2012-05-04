@@ -77,4 +77,6 @@ Mixture::Application.routes.draw do
   get 'ios', to: 'mixture#index'
   get 'c/:collection_id', to: 'mixture#index'
   root to: 'mixture#index'
+
+  match '*a', :to => 'application#render_not_found' unless Rails.application.config.consider_all_requests_local
 end
