@@ -1,5 +1,5 @@
 class Admin::MixesController < Admin::BaseController
-	before_filter :find_mix, only: [:show, :edit, :destroy, :publish, :unpublish, :update]
+	before_filter :find_mix, only: [:show, :edit, :destroy, :publish, :unpublish, :update, :destroy]
 
 	def index
 		if params[:query].present?
@@ -36,6 +36,14 @@ class Admin::MixesController < Admin::BaseController
 			redirect_to admin_mix_path(@mix), notice: "Mix has been updated."
 		else
 			render :edit
+		end
+	end
+
+	def destroy
+		if @mix.destroy
+			redirect_to admin_mixes_path, notice: 'Mix deleted'
+		else
+			redirect_to admin_mix_path(@mix), notice: 'Problem destroying mix.'
 		end
 	end
 

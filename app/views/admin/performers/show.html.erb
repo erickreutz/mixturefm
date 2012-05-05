@@ -1,8 +1,19 @@
 <div class="row-fluid">
 	<div class="span12">
 		<h2>Basic Info</h2>
+
+    <h4>ID</h4>
+    <p><%= @performer.id %></p>
+
 		<h4>Name</h4>
 		<p><%= @performer.name %></p>
+
+    <h4>Mixes</h4>
+    <ul class="unstyled">
+      <% @performer.mixes.each do |mix| %>
+        <%= link_to mix.title, admin_mix_path(mix) %>
+      <% end %>
+    </ul>
 
 		<div class="well">
 			<%= link_to "Edit", edit_admin_performer_path(@performer), class: 'btn btn-small' %>

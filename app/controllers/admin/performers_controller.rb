@@ -1,8 +1,8 @@
 class Admin::PerformersController < Admin::BaseController
-	before_filter :find_performer, only: [:edit, :update, :show]
+	before_filter :find_performer, only: [:edit, :update, :show, :destroy]
 
 	def index
-		@performers = Performer.paginate(page: params[:page])
+		@performers = Performer.order_by(:name, :asc).paginate(page: params[:page])
 	end
 
 	def show; end
@@ -28,6 +28,14 @@ class Admin::PerformersController < Admin::BaseController
 			redirect_to admin_performer_path(@performer), notice: 'Performer created.'
 		else
 			render 'new'
+		end
+	end
+
+	def destroy
+		if @performer.destroy
+			redirect_to admin_performers_path, notice: 'Performer deleted'
+		else
+			redirect_to admin_performer_path(@performer), notice: 'Problem destroying performer.'
 		end
 	end
 
