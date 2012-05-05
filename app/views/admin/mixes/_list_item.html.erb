@@ -1,6 +1,6 @@
 <a id="<%= dom_id(list_item) %>" class="mix" href="<%= admin_mix_path list_item %>">
 	<div>
-		<h5><%= list_item.title %> (<%= list_item.debuted_at.strftime('%d/%m/%Y') %>)</h5>
+		<h5><%= list_item.title %> <small>( <%= list_item.debuted_at.strftime('%d/%m/%Y') %> )</small></h5>
 	</div>
 	<div>
 		<p class="audio-processing">

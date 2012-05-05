@@ -8,7 +8,7 @@ class Admin::MixesController < Admin::BaseController
 				page: params[:page]
 			}, :admin);
 		else
-			@mixes = Mix.unscoped.paginate(page: params[:page])
+			@mixes = Mix.unscoped.order_by(:debuted_at, :desc).paginate(page: params[:page])
 		end
 	end
 
