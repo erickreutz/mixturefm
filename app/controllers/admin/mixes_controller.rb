@@ -2,7 +2,14 @@ class Admin::MixesController < Admin::BaseController
 	before_filter :find_mix, only: [:show, :edit, :destroy, :publish, :unpublish, :update]
 
 	def index
-		@mixes = Mix.unscoped.paginate(page: params[:page])
+		if params[:query].present?
+			@mixes = Mix.elastic_search({
+				query: params[:query],
+				page: params[:page]
+			}, :admin);
+		else
+			@mixes = Mix.unscoped.paginate(page: params[:page])
+		end
 	end
 
 	def new
