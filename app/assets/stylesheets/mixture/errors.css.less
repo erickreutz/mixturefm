@@ -9,6 +9,11 @@
   a {
     color: #fff;
     text-decoration: none;
+    .transition(text-shadow 0.25s ease-in-out);
+
+    &:hover {
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4), 0px 0px 4px rgba(255, 255, 255, 0.75);
+    }
   }
 
   div.logo {
