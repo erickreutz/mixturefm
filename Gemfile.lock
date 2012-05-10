@@ -194,9 +194,6 @@ GEM
       activemodel (~> 3.1)
       mongo (~> 1.3)
       tzinfo (~> 0.3.22)
-    mongoid_session_store (2.1.0)
-      mongoid (~> 2.3)
-      rails (~> 3.0)
     mongoid_slug (0.9.0)
       mongoid (~> 2.0)
       stringex (~> 1.3)
@@ -335,7 +332,6 @@ DEPENDENCIES
   less-rails
   meta-tags
   mongoid (~> 2.4)
-  mongoid_session_store
   mongoid_slug
   multi_json
   omniauth-facebook

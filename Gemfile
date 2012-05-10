@@ -7,7 +7,6 @@ gem 'rails', '3.2.0'
 
 gem 'bson_ext', '~> 1.5'
 gem 'mongoid', '~> 2.4'
-gem 'mongoid_session_store'
 gem 'ejs'
 gem 'backbone-support', git: 'git@github.com:erickreutz/backbone-support.git'
 # gem 'backbone-support', path: '/Volumes/Secondary/Users/eric/Projects/butter/Mixture.fm/development/backbone-support'
