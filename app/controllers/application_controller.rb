@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :authenticate
 
   unless Rails.application.config.consider_all_requests_local
     rescue_from Exception, with: :render_execption
@@ -19,12 +18,6 @@ class ApplicationController < ActionController::Base
   end
 
   protected
-  def authenticate
-    authenticate_or_request_with_http_basic do |username, password|
-      username == ENV['ADMIN_LOGIN'] && password == ENV['ADMIN_PASSWORD']
-    end
-  end
-
   def not_found
   	raise ActionController::RoutingError.new('Not Found')
 	end
