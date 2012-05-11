@@ -25,6 +25,7 @@ gem 'fog'
 gem 'unicorn'
 gem 'meta-tags', require: 'meta_tags'
 gem 'soundcloud', git: 'git://github.com/andrejj/soundcloud-ruby.git'
+gem 'newrelic_rpm'
 
 # For admin section
 gem 'twitter-bootstrap-rails', '~> 2.0.1'

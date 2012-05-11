@@ -203,6 +203,7 @@ GEM
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-ssh (2.3.0)
+    newrelic_rpm (3.3.4.1)
     nokogiri (1.5.0)
     oauth2 (0.5.2)
       faraday (~> 0.7)
@@ -334,6 +335,7 @@ DEPENDENCIES
   mongoid (~> 2.4)
   mongoid_slug
   multi_json
+  newrelic_rpm
   omniauth-facebook
   postmark-rails (~> 0.4.1)
   rack-test
