@@ -55,11 +55,15 @@ class User
 
   def favorite!(mix)
     self.favorites.create(mix: mix) if self.favorites.where(mix_id: mix.id).empty?
+    # Calling save on the mix will update the popularity count.
+    mix.save
   end
 
   def unfavorite!(mix)
     fav = self.favorites.where(mix_id: mix.id).first
     fav.present? && fav.destroy
+    # Calling save on the mix will update the popularity count.
+    mix.save
   end
 
 end
