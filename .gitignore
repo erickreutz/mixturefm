@@ -10,6 +10,8 @@ bin
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
+.rake_tasks~
+Procfile.dev
 
 # Ignore all logfiles and tempfiles.
 /log/*.log

@@ -1,5 +1,0 @@
-logger: powder applog
-worker: bundle exec rake jobs:work
-database: mongod run --config /usr/local/homebrew/Cellar/mongodb/2.0.3-x86_64/mongod.conf
-search: elasticsearch -f -D es.config=/usr/local/homebrew/Cellar/elasticsearch/0.19.0/config/elasticsearch.yml
-web: bundle exec unicorn -p $PORT -c ./config/unicorn.rb
