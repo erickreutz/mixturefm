@@ -46,6 +46,6 @@ module Mixture
     config.encoding = "utf-8"
     config.filter_parameters += [:password]
     config.assets.enabled = true
-    config.assets.version = '1.0.2'
+    config.assets.version = '1.0.3'
   end
 end
