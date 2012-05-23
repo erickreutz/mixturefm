@@ -216,8 +216,8 @@
 			width: 60px;
 			height: 60px;
 			margin: 0 auto;
-			.border-radius(30px);
-// 			#gradient > .vertical(#f5f7f8, #dfe1e3);
+			.border-radius(50%);
+ 			//#gradient > .vertical(#f5f7f8, #dfe1e3);
 			#gradient > .vertical(darken(#fff, 3%), darken(#e5e5e5, 5%));
 			.box-shadow(0px 1px 1px rgba(0, 0, 0, 0.35));
 			border-top: 1px solid #fff;
@@ -231,19 +231,20 @@
 				border-bottom: 1px solid #fff;
 			}
 
-			&.pause {
-				span.icon { left: 14px; }
-			}
-
 			span.icon {
+				position: absolute;
 				font-family: 'Pictos Custom';
 				font-style: normal;
+				text-align: center;
 				font-size: 36px;
-				position: absolute;
-				top: 13px;
-				left: 19px;
+				width: 36px;
+				height: 36px;
 				text-shadow: 0px 1px 0px #fff;
 				color: lighten(#3f3f38, 12%);
+				top: 50%;
+				left: 50%;
+				margin-top: -17px;
+				margin-left: -18px;
 			}
 		}
 	}
@@ -260,7 +261,6 @@
 			height: 100%;
 			padding:;
 			width: 78%;
-// 			background: yellow;
 			float: left;
 			position: relative;
 			.border-radius(5px);
