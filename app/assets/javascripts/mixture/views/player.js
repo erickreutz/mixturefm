@@ -7,7 +7,8 @@ Mixture.Views.Player = Mixture.View.extend({
     "click #player:not(.disabled) button.unfavorite": "toggleFavorite",
     "click #player:not(.disabled) button.facebook": "facebook",
     "click #player:not(.disabled) button.twitter": "twitter",
-    "click #player:not(.disabled) button.shortlink": "shortlink"
+    "click #player:not(.disabled) button.shortlink": "shortlink",
+    "click #player:not(.disabled) .progress-bar": "seek"
   },
 
   initialize: function() {
@@ -29,7 +30,8 @@ Mixture.Views.Player = Mixture.View.extend({
       'toggleFavoriteUI',
       'facebook',
       'twitter',
-      'shortlink'
+      'shortlink',
+      'seek'
     );
 
     this.model.on('sound:whileloading', this._whileloading);
@@ -234,6 +236,20 @@ Mixture.Views.Player = Mixture.View.extend({
     new Mixture.Views.Shared.Modal({
       view: modalView
     }).render();
+  },
+
+  seek: function(event) {
+    var $target = $(event.currentTarget);
+    if(typeof event.offsetX === "undefined" || typeof event.offsetY === "undefined") {
+      var targetOffset = $target.offset();
+      event.offsetX = event.pageX - targetOffset.left;
+      event.offsetY = event.pageY - targetOffset.top;
+    }
+
+    var percent = event.offsetX / $target.width();
+        percent = parseFloat(percent.toFixed(4));
+
+    this.model.seekToPercent(percent);
   },
 
   leave: function() {

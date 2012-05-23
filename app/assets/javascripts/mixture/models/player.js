@@ -85,6 +85,23 @@ Mixture.Models.Player = Mixture.Model.extend({
 		return (this.sound.position / 1000).toFixed(0);
 	},
 
+	seekToPercent: function(percent) {
+		var duration;
+		if (this.sound.loaded) {
+			duration = this.sound.duration;
+			console.log('durationLoaded', duration);
+		} else {
+			duration = this.mix.get('duration') * 1000;
+			console.log('durationFromMix', duration);
+		}
+
+		var seekTo = duration * percent;
+		console.log(percent);
+		console.log('duration', duration);
+		console.log('seeking to', seekTo);
+		this.sound.setPosition(seekTo);
+	},
+
 	duration: function() {
 		if (this.sound.loaded) {
 			return (this.sound.duration / 1000).toFixed(0);
