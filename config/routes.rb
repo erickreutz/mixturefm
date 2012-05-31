@@ -1,6 +1,8 @@
 Mixture::Application.routes.draw do
-  namespace :api do
-    namespace :v0 do
+  constraints subdomain: 'api' do
+    root to: 'application#render_not_found'
+
+    namespace :v0, :module => 'api/v0' do
 
       # Mixes
       resources :mixes, only: [:create, :show, :update] do
@@ -59,6 +61,7 @@ Mixture::Application.routes.draw do
         end
       end
     end
+
   end
 
   namespace :admin do
