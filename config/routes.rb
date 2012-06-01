@@ -40,8 +40,12 @@ Mixture::Application.routes.draw do
       end
 
       # Performers
-      resources :performers, only: [] do
+      resources :performers, only: [:index, :show] do
         get 'search', :action => :search, :on => :collection
+
+        resources :mixes, only: [:index] do
+          get 'page/:page', action: :index, on: :collection
+        end
       end
 
       # Users

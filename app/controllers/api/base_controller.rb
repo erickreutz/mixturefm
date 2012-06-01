@@ -34,4 +34,13 @@ class Api::BaseController < ApplicationController
 		rescue Mongoid::Errors::DocumentNotFound, BSON::InvalidObjectId
 			head :not_found
 		end
+
+		def find_performer
+			@performer = Performer.find_by_slug(params[:performer_id] || params[:id])
+			if @performer.nil?
+				head :not_found
+			end
+		rescue Mongoid::Errors::DocumentNotFound, BSON::InvalidObjectId
+			head :not_found
+		end
 end

@@ -10,10 +10,10 @@ class Performer
   has_and_belongs_to_many :mixes
 
   validates_presence_of :name, message: "cannot be blank."
-  validates_uniqueness_of :name, message: "is already taken.", case_sensitive: false 
-  
-  # Do this later. 
+  validates_uniqueness_of :name, message: "is already taken.", case_sensitive: false
+
   attr_accessible :name, as: [ :default, :admin ]
+  default_scope order_by(name: 'ASC')
 
   def payload
   	{

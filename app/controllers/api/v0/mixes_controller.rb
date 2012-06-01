@@ -1,11 +1,19 @@
 class Api::V0::MixesController < Api::BaseController
 	before_filter :authenticate_with_api_key
 	before_filter :verify_authenticated_user, only: [:create]
-	before_filter :find_mix_collection, only: [:index]
+
+	before_filter lambda{
+		find_performer if request.params.include?('performer_id')
+	}, only: [:index]
+
+	before_filter lambda{
+		find_mix_collection if request.params.include?('collection_id')
+	}, only: [:index]
+
 	before_filter :find_mix, only: [:show, :played, :stream]
 
 	def index
-		@models = @mix_collection.mixes
+		@models = @performer.present? ? @performer.mixes : @mix_collection.mixes
 		@models = @models.in_year(params[:year]) if !params[:year].blank?
 
 
