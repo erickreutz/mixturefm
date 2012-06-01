@@ -37,7 +37,7 @@ Mixture.Routers.App = Mixture.Router.extend({
     }
 
     collection = new Mixture.Collections.Mixes([/* emtpy models */], {
-      'baseUrl': '/api/v0/mixes/popular',
+      'baseUrl': '/v0/mixes/popular',
     });
 
     view = new Mixture.Views.Content({
@@ -63,7 +63,7 @@ Mixture.Routers.App = Mixture.Router.extend({
     this.appView.primaryNavView.navChange("recent");
 
     var collection = new Mixture.Collections.Mixes([/* emtpy models */], {
-      'baseUrl': '/api/v0/mixes/recent'
+      'baseUrl': '/v0/mixes/recent'
     });
 
     var view = new Mixture.Views.Content({
@@ -83,7 +83,7 @@ Mixture.Routers.App = Mixture.Router.extend({
     this.appView.primaryNavView.navChange("");
 
     var collection = new Mixture.Collections.MixCollections([/* emtpy models */], {
-      'baseUrl': '/api/v0/collections',
+      'baseUrl': '/v0/collections',
     });
 
     var view = new Mixture.Views.Content({
@@ -161,7 +161,7 @@ Mixture.Routers.App = Mixture.Router.extend({
 
     var collection = new Mixture.Collections.Search([/* emtpy models */], {
       'query': query || "",
-      'baseUrl': '/api/v0/mixes/search'
+      'baseUrl': '/v0/mixes/search'
     });
 
     var view = new Mixture.Views.Content({

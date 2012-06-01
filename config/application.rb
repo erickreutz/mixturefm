@@ -18,15 +18,10 @@ module Mixture
   class Application < Rails::Application
     config.autoload_paths += ["./app/jobs", "./app/uploaders", "./app/observers", "./lib/middleware"]
 
-
-    config.middleware.use OmniAuth::Builder do
-      provider :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET']
-      configure do |config|
-        config.path_prefix = '/api/v0/auth'
-      end
-
-      on_failure do |env|
-        Rails.logger.info "OMNIAUTH ERROR = #{env['omniauth.error'].inspect}"
+    config.middleware.use Rack::Cors do
+      allow do
+        origins 'http://mixture.dev', 'http://api.mixture.dev'
+        resource '*', headers: :any, methods: [:get, :post, :put, :delete, :options]
       end
     end
 

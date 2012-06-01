@@ -1,5 +1,5 @@
 Mixture.Models.Mix = Mixture.Model.extend({
-  urlRoot : '/api/v0/mixes',
+  urlRoot : '/v0/mixes',
 
   initialize: function(options) {
     options || (options = {});
@@ -21,7 +21,7 @@ Mixture.Models.Mix = Mixture.Model.extend({
     };
     $.ajax({
       type: 'get',
-      url: '/api/v0/mixes/' + this.id + '/stream',
+      url: '/v0/mixes/' + this.id + '/stream',
       dataType: 'json',
       success: function(response) {
         if (response.stream) {

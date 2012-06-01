@@ -1,10 +1,10 @@
 Mixture.Models.MixCollection = Mixture.Model.extend({
 	idAttribute: 'slug',
-	urlRoot : '/api/v0/collections',
+	urlRoot : '/v0/collections',
 
 	initialize: function(options) {
 		this.mixes = new Mixture.Collections.Mixes();
-		this.mixes.baseUrl = '/api/v0/collections/' + this.id + '/mixes';
+		this.mixes.baseUrl = '/v0/collections/' + this.id + '/mixes';
 	},
 
 	title: function() {

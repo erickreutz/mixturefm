@@ -45,8 +45,7 @@ Mixture::Application.routes.draw do
       end
 
       # Users
-      resources :users, only: [:destroy]
-      match "auth/:provider/callback" => "users#create"
+      resources :users, only: [:create]
 
       resource :u, controller: 'u', only: [:show] do
         resource :favorites, only: [] do
@@ -81,5 +80,5 @@ Mixture::Application.routes.draw do
   get 'c/:collection_id', to: 'mixture#index'
   root to: 'mixture#index'
 
-  match '*a', :to => 'application#render_not_found' unless Rails.application.config.consider_all_requests_local
+  match '*all', to: 'application#render_not_found' unless Rails.application.config.consider_all_requests_local
 end

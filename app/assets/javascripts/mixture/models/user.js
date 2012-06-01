@@ -1,5 +1,5 @@
 Mixture.Models.User = Mixture.Model.extend({
-	urlRoot: "/api/v0/users",
+	urlRoot: "/v0/users",
 	authenticationAttempted: false,
 
 	defaults: {
@@ -14,7 +14,7 @@ Mixture.Models.User = Mixture.Model.extend({
 	initialize: function() {
 		_.bindAll(this, 'authenticate', 'deauthenticate');
 		this.favorites = new Mixture.Collections.Mixes([], {
-			'baseUrl': '/api/v0/u/favorites'
+			'baseUrl': '/v0/u/favorites'
 		});
 
 		this.on('favorited', this._onFavorited);
@@ -23,7 +23,7 @@ Mixture.Models.User = Mixture.Model.extend({
 
 	url: function() {
 		if (this.isNew())
-			return '/api/v0/auth/facebook/callback?' + $.param({oauth_token: this.get('auth_token')});
+			return Mixture.Model.prototype.url.call(this, {}) + '?' + $.param({access_token: this.get('auth_token')});
 		else
 			return Mixture.Model.prototype.url.call(this, {});
 	},
@@ -73,7 +73,7 @@ Mixture.Models.User = Mixture.Model.extend({
 			return;
 		}
 
-		var url = '/api/v0/u/favorites/' + mix.id;
+		var url = '/v0/u/favorites/' + mix.id;
 		var user = this;
 		user.trigger('favorited', mix);
 		mix.trigger('favorited');
@@ -97,7 +97,7 @@ Mixture.Models.User = Mixture.Model.extend({
 
 	unfavorite: function(mix) {
 		if (!this.isAuthenticated()) return;
-		var url = '/api/v0/u/favorites/' + mix.id;
+		var url = '/v0/u/favorites/' + mix.id;
 		var user = this;
 		user.trigger('unfavorited', mix);
 		mix.trigger('unfavorited');
