@@ -24,7 +24,7 @@ Mixture.Routers.App = Mixture.Router.extend({
 
   mixesPopular: function(mix_id) {
     var collection, mix, linkedMixView, view;
-    this.appView.primaryNavView.navChange("popular");
+    this.appView.primaryNavView.navChange("/popular");
 
     if (mix_id) {
       mix = new Mixture.Models.Mix({id: mix_id});
@@ -60,7 +60,7 @@ Mixture.Routers.App = Mixture.Router.extend({
   },
 
   mixesRecent: function() {
-    this.appView.primaryNavView.navChange("recent");
+    this.appView.primaryNavView.navChange("/recent");
 
     var collection = new Mixture.Collections.Mixes([/* emtpy models */], {
       'baseUrl': '/v0/mixes/recent'
@@ -100,7 +100,7 @@ Mixture.Routers.App = Mixture.Router.extend({
   },
 
   collectionsShow: function(slug) {
-    this.appView.primaryNavView.navChange("c/" + slug);
+    this.appView.primaryNavView.navChange("/c/" + slug);
 
     var mixCollection = new Mixture.Models.MixCollection({
       slug: slug
@@ -131,7 +131,7 @@ Mixture.Routers.App = Mixture.Router.extend({
   },
 
   uFavorites: function() {
-    this.appView.primaryNavView.navChange("u/favorites");
+    this.appView.primaryNavView.navChange("/u/favorites");
 
     var collection = Mixture.user.favorites;
     // reset the page we are on.
