@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :cor
 
   unless Rails.application.config.consider_all_requests_local
     rescue_from Exception, with: :render_execption
@@ -16,12 +15,6 @@ class ApplicationController < ActionController::Base
 
   def render_execption
     render template: "/errors/500", status: :not_found, layout: 'error'
-  end
-
-  def cor
-    headers["Access-Control-Allow-Origin"]  = "*"
-    headers["Access-Control-Allow-Methods"] = %w{GET POST PUT DELETE}.join(",")
-    headers["Access-Control-Allow-Headers"] = %w{Origin Accept Content-Type X-Requested-With X-CSRF-Token}.join(",")
   end
 
   protected

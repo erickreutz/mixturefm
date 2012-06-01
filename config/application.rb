@@ -27,10 +27,6 @@ module Mixture
 
     config.middleware.use "WwwMiddleware"
 
-
-    config.action_mailer.delivery_method   = :postmark
-    config.action_mailer.postmark_settings = { api_key: ENV['POSTMARK_API_KEY'] }
-
     config.mongoid.observers = :mix_observer, :performer_observer, :mix_collection_observer
 
     config.generators do |g|
