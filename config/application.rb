@@ -20,7 +20,7 @@ module Mixture
 
     config.middleware.use Rack::Cors do
       allow do
-        origins 'http://mixture.dev', 'http://api.mixture.dev'
+        origins 'http://mixture.dev', '0.0.0.0:5400', '0.0.0.0:5100', 'mixture.fm'
         resource '*', headers: :any, methods: [:get, :post, :put, :delete, :options]
       end
     end
