@@ -1,0 +1,5 @@
+logger: tail -f log/development.log
+worker: bundle exec rake jobs:work
+database: mongod run --config ./config/mongod.conf
+search: elasticsearch -f -D es.config=./config/elasticsearch.yml
+// web: bundle exec unicorn -p $PORT -c ./config/unicorn.rb

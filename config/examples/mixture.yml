@@ -1,0 +1,19 @@
+generic: &GENERIC
+  s3_sound_bucket: media.mixture.fm
+  s3_sound_host: http://media.mixture.fm
+
+development:
+  <<: *GENERIC
+  host: mixture.dev
+
+test:
+  <<: *GENERIC
+  host: mixture.dev
+
+live: &LIVE
+  <<: *GENERIC
+  host: mixture.fm
+
+production:
+  <<: *LIVE
+
