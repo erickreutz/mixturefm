@@ -19,13 +19,6 @@ GIT
       rest-client (~> 1.6)
 
 GIT
-  remote: git://github.com/lardawge/carrierwave_backgrounder.git
-  revision: dce6ec075f277a6bde3376f98431749c0374dcd9
-  specs:
-    carrierwave_backgrounder (0.0.7)
-      carrierwave (~> 0.5)
-
-GIT
   remote: git@github.com:erickreutz/backbone-support.git
   revision: 055c69b405493750dde49248201ae89d11470a7a
   specs:
@@ -78,12 +71,6 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 0.1.4)
-    carrierwave (0.6.2)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
-    carrierwave-mongoid (0.2.0)
-      carrierwave (~> 0.6.1)
-      mongoid (~> 2.1)
     childprocess (0.3.5)
       ffi (~> 1.0, >= 1.0.6)
     coffee-rails (3.2.2)
@@ -309,8 +296,6 @@ DEPENDENCIES
   bitly
   bson_ext (~> 1.5)
   capybara
-  carrierwave-mongoid
-  carrierwave_backgrounder!
   coffee-rails (~> 3.2.1)
   cucumber-rails
   database_cleaner

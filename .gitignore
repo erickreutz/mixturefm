@@ -7,7 +7,6 @@ log/*.log
 log/*.pid
 tmp/**/*
 tmp/*
-config/mixture.yml
 config/elasticsearch.yml
 config/mongoid.yml
 config/mongod.conf

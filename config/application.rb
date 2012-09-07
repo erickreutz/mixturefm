@@ -11,7 +11,6 @@ if defined?(Bundler)
   Bundler.require(*Rails.groups(:assets => %w(development test)))
 end
 
-$mixture_config = YAML.load_file("config/mixture.yml")[Rails.env].symbolize_keys
 HOST = ENV['HOST']
 
 module Mixture
