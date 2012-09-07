@@ -41,22 +41,9 @@ end
 
 group :development do
 	gem 'forgery', '~> 0.3.12'
-	gem 'rb-fsevent'
-	gem 'growl_notify'
-  gem 'guard'
-	gem 'guard-livereload'
 	gem 'rockstar' # for seeding the artists with last.fm
 end
 
 group :test do
-	gem 'capybara'
-	gem 'cucumber-rails'
-	gem 'database_cleaner'
-	gem 'launchy'
-	gem 'rack-test', require: 'rack/test'
-	gem 'rr'
-	gem 'shoulda-context'
-	gem 'shoulda-matchers'
-	gem 'webmock'
-	gem 'multi_json'
+
 end

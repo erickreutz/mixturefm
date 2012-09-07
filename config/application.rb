@@ -28,11 +28,6 @@ module Mixture
 
     config.mongoid.observers = :mix_observer, :performer_observer, :mix_collection_observer
 
-    config.generators do |g|
-      g.test_framework      :test_unit, fixture_replacement: :fabrication
-      g.fixture_replacement :fabrication, dir: "test/fabricators"
-    end
-
     config.encoding = "utf-8"
     config.filter_parameters += [:password]
     config.assets.enabled = true
