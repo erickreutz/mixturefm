@@ -24,7 +24,6 @@ gem 'fog'
 gem 'unicorn'
 gem 'meta-tags', require: 'meta_tags'
 gem 'soundcloud', git: 'git://github.com/andrejj/soundcloud-ruby.git'
-gem 'newrelic_rpm'
 gem 'rack-cors', :require => 'rack/cors'
 
 # For admin section
