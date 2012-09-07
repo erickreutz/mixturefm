@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <%
+    set_meta_tags description: "Mixture.fm gives you access to all the best DJ mixes from around the world. Including BBC Radio 1's famous Essential Mix.",
+      keywords: "electronic music, dance music, house music, dj, essential mix, bbc radio1, fact mix, fact mag"
+  %>
+  <%= display_meta_tags site: "Mixture.fm - Mixes for the Masses" %>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+  <link rel="SHORTCUT ICON" href="<%= image_path 'favicon.png' %>">
+
+  <%= stylesheet_link_tag "mixture" %>
+  <%= csrf_meta_tags %>
+
+</head>
+
+<body>
+  <div id="mixture">
+
+  </div>
+  <div id="fb-root"></div>
+
+  <script type="text/json" id="nav-bootstrap">
+    {"collections": <%= MixCollection.popular.limit(5).to_json %> }
+  </script>
+
+  <%= javascript_include_tag "main" %>
+  <script type="text/javascript">
+    window.fbAsyncInit = function() {
+      Mixture.fbInit();
+    };
+
+    // Load the SDK Asynchronously
+    (function(d){
+      var js, id = 'facebook-jssdk'; if (d.getElementById(id)) { return; }
+      js = d.createElement('script'); js.id = id; js.async = true;
+      js.src = "//connect.facebook.net/en_US/all.js";
+      d.getElementsByTagName('head')[0].appendChild(js);
+     }(document));
+  </script>
+
+  <% if Rails.env.production? %>
+    <script type="text/javascript">
+      var _gauges = _gauges || [];
+      (function() {
+        var t   = document.createElement('script');
+        t.type  = 'text/javascript';
+        t.async = true;
+        t.id    = 'gauges-tracker';
+        t.setAttribute('data-site-id', '<%= ENV['GAUGES_ID'] %>');
+        t.src = '//secure.gaug.es/track.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(t, s);
+      })();
+    </script>
+  <% end %>
+
+</body>
+</html>
