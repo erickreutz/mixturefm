@@ -1,0 +1,22 @@
+defaults: &defaults
+  allow_dynamic_fields: true
+  parameterize_keys: true
+  persist_in_safe_mode: true
+  raise_not_found_error: true
+  reconnect_time: 3
+  use_object_ids: true
+
+development:
+  <<: *defaults
+  host: localhost
+  database: mixture_development
+
+test:
+  <<: *defaults
+  host: localhost
+  database: mixture_test
+
+# set these environment variables on your prod server
+production:
+  <<: *defaults
+  database: <%= ENV['MONGOHQ_URL'] %>
