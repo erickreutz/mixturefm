@@ -12,7 +12,7 @@ if defined?(Bundler)
 end
 
 $mixture_config = YAML.load_file("config/mixture.yml")[Rails.env].symbolize_keys
-HOST            = $mixture_config[:host]
+HOST = ENV['HOST']
 
 module Mixture
   class Application < Rails::Application
