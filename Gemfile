@@ -23,9 +23,9 @@ gem 'soundcloud', git: 'git://github.com/andrejj/soundcloud-ruby.git'
 gem 'rack-cors', :require => 'rack/cors'
 
 # For admin section
-gem 'twitter-bootstrap-rails', '~> 2.0.1'
 gem 'simple_form', '~> 2.0.0'
 gem 'jquery-rails', '>= 1.0.12'
+gem 'twitter-bootstrap-rails', git: 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 # Gems used only for assets and not required
 # in production environments by default.
