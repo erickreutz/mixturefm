@@ -25,7 +25,7 @@ gem 'rack-cors', :require => 'rack/cors'
 # For admin section
 gem 'simple_form', '~> 2.0.0'
 gem 'jquery-rails', '>= 1.0.12'
-gem 'twitter-bootstrap-rails', git: 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'twitter-bootstrap-rails', '2.0.1'
 
 # Gems used only for assets and not required
 # in production environments by default.
