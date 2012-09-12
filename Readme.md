@@ -1,11 +1,11 @@
-# Mixture.fm #
+# Mixture.fm
 Mixes for the masses. 
 
 [Mixture.fm](http://mixture.fm) is thee complete, concise, organized, and handpicked stockpile of the best DJ mixes from around the world.
 
 ![Mixture.fm](http://f.cl.ly/items/1U2y1i250Q2G0h1K410S/mixturefm.png)
 
-## Why? ##
+## Why?
 
 I built [Mixture.fm](http://mixture.fm) to accomplish 2 things:
 
@@ -19,7 +19,7 @@ I am open sourcing this because I think it is a decent example of how to go abou
 Also, this should not be seen as "just an example". I will continue to develop, fix, and improve this over time and you are more then welcome to contribute :) 
 
 
-## Running Locally ##
+## Running Locally
 
 **Note:** I am running ruby 1.9.3
 	
@@ -52,7 +52,7 @@ Now install Bundler if you don't already have it installed and install all the g
 	$ bundle install --path .bundle --binstubs
 
 
-### Configure ###
+### Configure
 You may need to edit the profile accordingly with the correct paths to the config files. I provided some example config files in config/examples. If you would like to use these just run these commands from the root of the repo.
 
 	$ cp config/examples/mongoid.yml config/
@@ -63,7 +63,16 @@ You may need to edit the profile accordingly with the correct paths to the confi
 _You'll need to edit the .env file and fill in all the variables with valid keys and tokens._
 
 
-### Run the thing! ###
+### Run the thing!
 	$ bundle exec foreman start -f Procfile.dev
 
 Now you can visit `http://mixturefm.dev` and you should be up and running. If you have issues getting it working, [send me an email](mailto:eric@airkrft.com).
+
+## Contributing
+You can fix bugs all you want! If you are wanting to add a feature please let me know about it before you go head first into developing it so we can make sure it is a feature the app needs. Checkout the issues for bugs to squash and potential features to implement.
+
+Right now my branches are pretty simple. There is no staging server and no tests;) So be sure to right tests or test things manually before sending a pull request. 
+
+As I said, my branches are simple. What is in `master` is currently running on the server. `develop` houses everything that will be deployed next next time I deploy. When I work on a new feature or bug fix I create a new branch with the wonderful [git_remote_branch](https://github.com/webmat/git_remote_branch) then merge it into `develop`.
+
+Please [email](mailto:eric@airkrft.com) me with any questions. 
