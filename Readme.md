@@ -3,7 +3,7 @@ Mixes for the masses.
 
 [Mixture.fm](http://mixture.fm) is thee complete, concise, organized, and handpicked stockpile of the best DJ mixes from around the world.
 
-Built with Rails and Backbone.js hosted on Heroku.
+_Built with Rails and Backbone.js hosted on Heroku._
 
 ![Mixture.fm](http://f.cl.ly/items/1U2y1i250Q2G0h1K410S/mixturefm.png)
 
