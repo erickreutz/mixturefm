@@ -60,10 +60,10 @@ window.Mixture = {
 		if (!Mixture.user) Mixture.user = new Mixture.Models.User();
     FB._https = false;
 		FB.init({
-			appId: "<%= ENV['FACEBOOK_APP_ID'] %>", // App ID
-			status: true, // check login status
-			cookie: true, // enable cookies to allow the server to access the session
-			xfbml:  true  // parse XFBML
+			appId: "<%= ENV['FACEBOOK_APP_ID'] %>",
+			status: true,
+			cookie: true,
+			xfbml:  true
 		});
 
 		// check the auth status

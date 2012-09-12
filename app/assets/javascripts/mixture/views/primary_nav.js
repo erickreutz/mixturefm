@@ -15,7 +15,7 @@ Mixture.Views.PrimaryNav = Mixture.View.extend({
 		this.$el.html(html);
 		new Mixture.Util.NoClickDelay(this.$el.get(0));
 
-		// ajax spinner thing
+		// ajax spinner
 		this.$spinner = this.$('#spinner');
 		$(document).ajaxStart(this.showSpinner);
 		$(document).ajaxStop(this.hideSpinner);

@@ -107,12 +107,6 @@ Mixture.Collections.MixRegistry = Backbone.Collection.extend({
 
   This fixes where we load mixes before a user is logged in
   so we can make sure all the coreect models are marked as favorites, etc.
-
-  This has the potential to get pretty big.
-  I think we could fix it up a little.
-  We could clear it after the user is logged in.
-  and if the mix isnt being played or a user favorite
-  then I dont think it needs to be in here.
   */
   register: function(mixes) {
     if (!_.isArray(mixes)) {
