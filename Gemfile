@@ -42,6 +42,7 @@ end
 group :development do
 	gem 'forgery', '~> 0.3.12'
 	gem 'rockstar' # for seeding the artists with last.fm
+  gem 'foreman'
 end
 
 group :test do
