@@ -73,6 +73,6 @@ You can fix bugs all you want! If you are wanting to add a feature please let me
 
 Right now my branches are pretty simple. There is no staging server and no tests;) So be sure to right tests or test things manually before sending a pull request. 
 
-As I said, my branches are simple. What is in `master` is currently running on the server. `develop` houses everything that will be deployed next next time I deploy. When I work on a new feature or bug fix I create a new branch with the wonderful [git_remote_branch](https://github.com/webmat/git_remote_branch) then merge it into `develop`.
+As I said, my branches are simple. What is in `master` is currently running on the server. `develop` houses everything that will be deployed next time I deploy. When I work on a new feature or bug fix I create a new branch with the wonderful [git_remote_branch](https://github.com/webmat/git_remote_branch) then merge it into `develop`.
 
 Please [email](mailto:eric@airkrft.com) me with any questions. 
