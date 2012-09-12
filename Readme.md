@@ -56,7 +56,7 @@ Now install Bundler if you don't already have it installed and install all the g
 
 
 ### Configure
-You may need to edit the profile accordingly with the correct paths to the config files. I provided some example config files in config/examples. If you would like to use these just run these commands from the root of the repo.
+You may need to edit the `Procfile.dev` accordingly with the correct paths to the config files. I provided some example config files in config/examples. If you would like to use these just run these commands from the root of the repo.
 
 	$ cp config/examples/mongoid.yml config/
 	$ cp config/examples/elasticsearch.yml config/
