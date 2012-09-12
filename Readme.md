@@ -6,7 +6,7 @@ Mixes for the masses.
 ![Mixture.fm](http://f.cl.ly/items/1U2y1i250Q2G0h1K410S/mixturefm.png)
 
 ## Why? ##
----
+
 I built [Mixture.fm](http://mixture.fm) to accomplish 2 things:
 
 * To have a place for me and everyone else to go and listen to the best mixes for all over.
@@ -20,7 +20,7 @@ Also, this should not be seen as "just an example". I will continue to develop/f
 
 
 ## Running Locally ##
----
+
 **Note:** I am running ruby 1.9.3
 	
 Grab the source
