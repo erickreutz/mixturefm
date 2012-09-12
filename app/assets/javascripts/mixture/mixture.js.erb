@@ -1,0 +1,77 @@
+/*
+*= require_self
+*= require ./model
+*= require ./view
+*= require ./router
+*= require_tree ./util
+*= require_tree ./templates
+*= require_tree ./models
+*= require_tree ./views
+*= require_tree ./routers
+*/
+
+window.DEBUG = true;
+window.Mixture = {
+	Util: {},
+	Models: {},
+  Collections: {},
+  Routers: {},
+  Views: {},
+
+  init: function(options) {
+  	if (!Mixture.user) Mixture.user = new Mixture.Models.User();
+  	Mixture.mixRegistry = new Mixture.Collections.MixRegistry();
+		Mixture.player      = new Mixture.Models.Player();
+		Mixture.appRouter   = new Mixture.Routers.App(options);
+
+    $.ajaxPrefilter(function(options, origOptions, jqXHR) {
+      var l = window.location;
+      options.url = l.protocol + '//api.' + l.host + options.url;
+
+      if (Mixture.user.isAuthenticated()) {
+        jqXHR.setRequestHeader('APIKey', Mixture.user.get('api_key'))
+      }
+    });
+
+	  Backbone.history.start({ pushState: true });
+
+	  if (Modernizr.appleios) {
+      Backbone.history.navigate('ios', {trigger: true});
+    }
+
+    Backbone.history.on('route', function() {
+      _gauges.push(['track']);
+    });
+
+	  $(document).on("click", "a[href^='/']", function(evt) {
+      if (!event.altKey && !event.ctrlKey && !event.metaKey && !event.shiftKey) {
+	     var href = $(this).attr("href");
+	     var protocol = this.protocol + "//";
+
+	     if (href && href.slice(0, protocol.length) !== protocol) {
+	       evt.preventDefault();
+	       Mixture.appRouter.navigate(href, true);
+	     }
+      }
+	  });
+  },
+
+  fbInit: function() {
+		if (!Mixture.user) Mixture.user = new Mixture.Models.User();
+    FB._https = false;
+		FB.init({
+			appId: "<%= ENV['FACEBOOK_APP_ID'] %>", // App ID
+			status: true, // check login status
+			cookie: true, // enable cookies to allow the server to access the session
+			xfbml:  true  // parse XFBML
+		});
+
+		// check the auth status
+		FB.getLoginStatus(_.bind(function(response) {
+		  if (response.status === 'connected') {
+		  	var authToken = response.authResponse.accessToken;
+		  	Mixture.user.authenticate(authToken);
+		  }
+		}, this));
+  }
+}
