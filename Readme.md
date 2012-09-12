@@ -69,7 +69,7 @@ _You'll need to edit the .env file and fill in all the variables with valid keys
 Now you can visit `http://mixturefm.dev` and you should be up and running. If you have issues getting it working, [send me an email](mailto:eric@airkrft.com).
 
 ## Contributing
-You can fix bugs all you want! If you are wanting to add a feature please let me know about it before you go head first into developing it so we can make sure it is a feature the app needs. Checkout the issues for bugs to squash and potential features to implement.
+You can fix bugs all you want! If you are wanting to add a feature please let me know about it before you go head first into dev so we can make sure it is a feature the app needs. Checkout the issues for bugs to squash and potential features to implement.
 
 Right now my branches are pretty simple. There is no staging server and no tests;) So be sure to right tests or test things manually before sending a pull request. 
 
