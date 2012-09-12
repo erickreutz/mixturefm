@@ -16,7 +16,7 @@ With that said some things are probably a little rough. You'll find hacks, CCS t
 
 I am open sourcing this because I think it is a decent example of how to go about building a JS app with Backbone. The tutorials and such out there in my opinion never go deep enough so I hope this fills that gap for people wanting to learn. 
 
-Also, this should not be seen as "just an example". I will continue to develop/fix/improve this over time and you are more then welcome to contribute :) 
+Also, this should not be seen as "just an example". I will continue to develop, fix, and improve this over time and you are more then welcome to contribute :) 
 
 
 ## Running Locally ##
