@@ -12,7 +12,7 @@ _Built with Rails and Backbone.js hosted on Heroku._
 
 I built [Mixture.fm](http://mixture.fm) to accomplish 2 things:
 
-* To have a place for me and everyone else to go and listen to the best mixes for all over.
+* To have a place for me and everyone else to go and listen to the best mixes from all over.
 * To gain experience with Backbone.js building a real world app.
 
 With that said some things are probably a little rough. You'll find hacks, CCS that isn't being used, unused templates and views, and places where there is probably a better way to doing things.
