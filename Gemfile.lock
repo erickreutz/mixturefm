@@ -8,6 +8,13 @@ GIT
       httparty (>= 0.7.3)
 
 GIT
+  remote: git://github.com/erickreutz/exceptional.git
+  revision: 8f8a0f0707b7adcf2b906de7be6eeda4f14d1212
+  specs:
+    exceptional (2.0.32)
+      rack
+
+GIT
   remote: git://github.com/jfredett/tire.git
   revision: 5bce2b5294b6356c39e939f1203da1f7c71279b3
   specs:
@@ -227,6 +234,7 @@ DEPENDENCIES
   delayed_job
   delayed_job_mongoid
   ejs
+  exceptional!
   fabrication
   foreman
   forgery (~> 0.3.12)

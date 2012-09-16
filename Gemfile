@@ -21,6 +21,7 @@ gem 'unicorn'
 gem 'meta-tags', require: 'meta_tags'
 gem 'soundcloud', git: 'git://github.com/andrejj/soundcloud-ruby.git'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'exceptional', git: 'git://github.com/erickreutz/exceptional.git'
 
 # For admin section
 gem 'simple_form', '~> 2.0.0'

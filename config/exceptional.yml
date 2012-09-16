@@ -1,0 +1,6 @@
+production:
+  api-key: <%= ENV['EXCEPTIONAL_API_KEY'] %>
+  enabled: true
+development:
+  api-key: <%= ENV['EXCEPTIONAL_API_KEY'] %>
+  enabled: true
