@@ -26,6 +26,12 @@
     {"collections": <%= MixCollection.popular.limit(5).to_json %> }
   </script>
 
+  <!-- Exceptional! -->
+  <script type="text/javascript" src="http://js.exceptional.io/exceptional.js"></script>
+  <script type="text/javascript">
+    Exceptional.setKey("<%= ENV['EXCEPTIONAL_API_KEY'] %>");
+  </script>
+
   <%= javascript_include_tag "main" %>
   <script type="text/javascript">
     window.fbAsyncInit = function() {
