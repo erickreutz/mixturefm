@@ -133,7 +133,7 @@ Mixture.Models.Player = Mixture.Model.extend({
 			// Throw up a little error message
 			noty({
 				type: 'error',
-				text: 'Oops! Something it wrong with that mix. We\'ve been notified and are looking into it.'
+				text: 'Oops! Something is wrong with that mix. We\'ve been notified and are looking into it.'
 			});
 
 			// Notify exceptional
