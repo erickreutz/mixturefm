@@ -2,7 +2,7 @@ Mixture.Models.Mix = Mixture.Model.extend({
   urlRoot : '/v0/mixes',
 
   initialize: function(options) {
-    options || (options = {});
+    if (!options) options = {};
     _.bindAll(this, '_onFavorited', '_onUnfavorited');
     this.isQueued = false;
     this.markedAsPlayed = false;
@@ -12,29 +12,8 @@ Mixture.Models.Mix = Mixture.Model.extend({
 
   validate: function() {},
 
-  streamUrl: function(callback) {
-    var error = function() {
-      noty({
-        text: "Error fetching audio stream.",
-        type: 'error'
-      });
-    };
-    $.ajax({
-      type: 'get',
-      url: '/v0/mixes/' + this.id + '/stream',
-      dataType: 'json',
-      success: function(response) {
-        if (response.stream) {
-          if (callback) callback(response.stream);
-        } else {
-          error();
-        }
-      },
-      error : function(xhr, type) {
-        error();
-        callback(false);
-      }
-    });
+  streamUrl: function() {
+    return window.location.protocol + '//api.' + window.location.host + this.url() + '/stream';
   },
 
   title: function(withoutHTML) {
@@ -45,7 +24,9 @@ Mixture.Models.Mix = Mixture.Model.extend({
 
     var data = _.extend(this.toJSON(), {
       "performersDelimited": function() {
-        return _.map(this.performers, function(p) { return p.name }).join(', ');
+        return _.map(this.performers, function(p){
+          return p.name;
+        }).join(', ');
       },
       withoutHTML: withoutHTML
     });
@@ -58,7 +39,7 @@ Mixture.Models.Mix = Mixture.Model.extend({
     this.markedAsPlayed = true;
 
     var playCount = this.get('play_count');
-    this.set('play_count', (playCount + 1)) && $.ajax({
+    if ( this.set('play_count', (playCount + 1) )) $.ajax({
       type: 'PUT',
       url: this.url() + '/played',
       success: function() {},
@@ -146,7 +127,7 @@ Mixture.Collections.Mixes = Support.InfiniteCollection.extend({
       this.year = null;
     } else {
       this.year = year;
-    };
+    }
 
     this.page = 1;
     this.trigger('filteryear', this);

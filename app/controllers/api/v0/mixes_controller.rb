@@ -78,6 +78,6 @@ class Api::V0::MixesController < Api::BaseController
 	end
 
 	def stream
-		render json: { stream: @mix.streamable_url }
+		redirect_to @mix.streamable_url
 	end
 end

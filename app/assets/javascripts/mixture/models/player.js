@@ -24,44 +24,41 @@ Mixture.Models.Player = Mixture.Model.extend({
 			whileloading: this._whileloading,
 			whileplaying: this._whileplaying,
 			onfinish: this._onfinish,
-			onpause: this._onpause,
 			onresume: this._onresume
 		};
 	},
 
 	queue: function(model) {
-		model.streamUrl(_.bind(function(url) {
-			if (!url) return;
+		var url = model.streamUrl();
 
-			if (this.mix) {
-				this.mix.dequeued();
-			}
+		if (this.mix) {
+			this.mix.dequeued();
+		}
 
-			this.mix = model;
-			this.mix.queued()
+		this.mix = model;
+		this.mix.queued();
 
-			if (this.sound) {
-				this.sound.destruct();
-			}
+		if (this.sound) {
+			this.sound.destruct();
+		}
 
-			var options = _.extend(defaultOptions, {
-				id: 'sound-' + this.mix.id,
-				url: url
-			});
+		var options = _.extend(defaultOptions, {
+			id: 'sound-' + this.mix.id,
+			url: url
+		});
 
-			this.trigger('sound:beforequeue', this);
+		this.trigger('sound:beforequeue', this);
 
-			if (soundManager.ok()) {
+		if (soundManager.ok()) {
+			this.sound = soundManager.createSound(options);
+			this.trigger('sound:queue', this);
+		} else {
+			soundManager.onready(_.bind(function() {
 				this.sound = soundManager.createSound(options);
 				this.trigger('sound:queue', this);
-			} else {
-				soundManager.onready(_.bind(function() {
-					this.sound = soundManager.createSound(options);
-					this.trigger('sound:queue', this);
-				}, this));
-			}
+			}, this));
+		}
 
-		}, this));
 	},
 
 	percentLoaded: function() {
@@ -76,7 +73,7 @@ Mixture.Models.Player = Mixture.Model.extend({
 
 		//if the mix is loaded use the duration from sound manager
 		if (this.sound.loaded) {
-			var duration = (this.sound.duration / 1000).toFixed(0);
+			duration = (this.sound.duration / 1000).toFixed(0);
 		}
 		return ((position / duration) * 100).toFixed(2);
 	},
@@ -126,12 +123,25 @@ Mixture.Models.Player = Mixture.Model.extend({
 		// log('position:', this.sound.position(), 'duration:', this.sound.duration());
 		if (this.percentPlayed() >= 5) {
 			this.mix.played();
-		};
+		}
 		this.trigger('sound:whileplaying', this);
 	},
 
 	_onload: function(success) {
 //		log('onload');
+		if (!success) {
+			// Throw up a little error message
+			noty({
+				type: 'error',
+				text: 'Oops! Something it wrong with that mix. We\'ve been notified and are looking into it.'
+			});
+
+			// Notify exceptional
+			var msg = 'Mix with id (' + this.mix.id + ') failed to load.';
+			var url = this.mix.streamUrl();
+			Exceptional.handle(msg, url, 0);
+		}
+
 		this.trigger('sound:load', this, success);
 	},
 
@@ -153,11 +163,6 @@ Mixture.Models.Player = Mixture.Model.extend({
 	_onfinish: function() {
 //		log('onfinish');
 		this.trigger('sound:finish', this);
-	},
-
-	_onpause: function() {
-//		log('onpause');
-		this.trigger('sound:pause', this);
 	},
 
 	_onresume: function() {
