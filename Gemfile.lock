@@ -8,6 +8,12 @@ GIT
       httparty (>= 0.7.3)
 
 GIT
+  remote: git://github.com/erickreutz/backbone-support.git
+  revision: 8b85e2bf54378ec56b220c56634dae2a0fe62e47
+  specs:
+    backbone-support (0.2.1)
+
+GIT
   remote: git://github.com/erickreutz/exceptional.git
   revision: 8f8a0f0707b7adcf2b906de7be6eeda4f14d1212
   specs:
@@ -24,12 +30,6 @@ GIT
       multi_json (~> 1.0)
       rake
       rest-client (~> 1.6)
-
-GIT
-  remote: git@github.com:erickreutz/backbone-support.git
-  revision: 055c69b405493750dde49248201ae89d11470a7a
-  specs:
-    backbone-support (0.2.1)
 
 GEM
   remote: https://rubygems.org/
