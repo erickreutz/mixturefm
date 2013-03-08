@@ -1,7 +1,7 @@
 # Mixture.fm
 Mixes for the masses. 
 
-[Mixture.fm](http://mixture.fm) is thee complete, concise, organized, and handpicked stockpile of the best DJ mixes from around the world.
+[Mixture.fm](http://mixture.fm) is the complete, concise, organized, and handpicked stockpile of the best DJ mixes from around the world.
 
 _Built with Rails and Backbone.js hosted on Heroku._
 
