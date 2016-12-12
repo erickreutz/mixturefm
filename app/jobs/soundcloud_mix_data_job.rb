@@ -1,7 +1,7 @@
 class SoundcloudMixDataJob < Struct.new(:mix_id)
   @queue = :soundcloud
 
-  def before(job)
+  def before(_job)
     @mix = Mix.unscoped.find(mix_id)
     @mix.update_attribute(:processing, true)
   end
@@ -13,18 +13,18 @@ class SoundcloudMixDataJob < Struct.new(:mix_id)
     @mix.duration = (sc_track.duration / 1000) # SC duration is in milliseoncds.
   end
 
-  def success(job)
+  def success(_job)
     @mix.assign_attributes({
-      processed_at: DateTime.now,
-      processing: false
-    }, as: :admin)
+                             processed_at: DateTime.now,
+                             processing: false
+                           }, as: :admin)
   end
 
-  def after(job)
+  def after(_job)
     @mix.update_attribute(:processing, false)
   end
 
-  def error(job, exception)
+  def error(_job, _exception)
     @mix.update_attribute(:processed_at, nil)
   end
 

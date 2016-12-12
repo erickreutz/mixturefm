@@ -20,8 +20,8 @@ class Api::V0::PerformersController < Api::BaseController
     render json: @performer
   end
 
-	def search
-		resp = Performer.simple_search(/#{params[:q]}/i)
-		render json: resp
-	end
+  def search
+    resp = Performer.simple_search(/#{params[:q]}/i)
+    render json: resp
+  end
 end

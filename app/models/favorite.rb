@@ -4,5 +4,4 @@ class Favorite
 
   belongs_to :user
   belongs_to :mix
-
 end

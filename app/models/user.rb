@@ -9,8 +9,7 @@ class User
   field :last_name, type: String
   field :api_key, type: String
   field :admin, type: Boolean, default: false
-  has_many :favorites, order: [[ :created_at, :desc ]]
-
+  has_many :favorites, order: [[:created_at, :desc]]
 
   set_callback(:create, :before) do |document|
     document.generate_token(:api_key)
@@ -19,11 +18,11 @@ class User
   class << self
     def create_with_omniauth(auth)
       create! do |user|
-        user.provider   = auth["provider"]
-        user.uid        = auth["uid"]
-        user.email      = auth["info"]["email"]
-        user.first_name = auth["info"]["first_name"]
-        user.last_name  = auth["info"]["last_name"]
+        user.provider   = auth['provider']
+        user.uid        = auth['uid']
+        user.email      = auth['info']['email']
+        user.first_name = auth['info']['first_name']
+        user.last_name  = auth['info']['last_name']
       end
     end
   end
@@ -49,21 +48,20 @@ class User
     }
   end
 
-  def as_json(options={})
+  def as_json(_options = {})
     payload
   end
 
   def favorite!(mix)
-    self.favorites.create(mix: mix) if self.favorites.where(mix_id: mix.id).empty?
+    favorites.create(mix: mix) if favorites.where(mix_id: mix.id).empty?
     # Calling save on the mix will update the popularity count.
     mix.save
   end
 
   def unfavorite!(mix)
-    fav = self.favorites.where(mix_id: mix.id).first
+    fav = favorites.where(mix_id: mix.id).first
     fav.present? && fav.destroy
     # Calling save on the mix will update the popularity count.
     mix.save
   end
-
 end

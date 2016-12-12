@@ -10,15 +10,16 @@ class ApplicationController < ActionController::Base
   end
 
   def render_not_found
-    render template: "/errors/404", status: :not_found, layout: 'error'
+    render template: '/errors/404', status: :not_found, layout: 'error'
   end
 
   def render_execption
-    render template: "/errors/500", status: :not_found, layout: 'error'
+    render template: '/errors/500', status: :not_found, layout: 'error'
   end
 
   protected
+
   def not_found
-  	raise ActionController::RoutingError.new('Not Found')
-	end
+    raise ActionController::RoutingError, 'Not Found'
+  end
 end
