@@ -10,7 +10,7 @@ class Mix
 
   belongs_to :mix_collection
   has_and_belongs_to_many :performers
-  has_many :favorites, order: [[ :created_at, :desc ]]
+  has_many :favorites, order: [[:created_at, :desc]]
 
   field :caption, type: String
   field :debuted_at, type: DateTime
@@ -28,7 +28,7 @@ class Mix
   include Tire::Model::Callbacks
 
   validates_presence_of :debuted_at, :mix_collection,
-    :performer_ids, :sc_url
+                        :performer_ids, :sc_url
   validates_uniqueness_of :sc_url
 
   default_scope excludes(processed_at: nil)
@@ -45,8 +45,8 @@ class Mix
 
   # Do this later.
   attr_accessible :caption, :debuted_at, :performer_tokens,
-    :mix_collection_id, :short_url, :sc_url,
-    :processed, :processed_at, as: :admin
+                  :mix_collection_id, :short_url, :sc_url,
+                  :processed, :processed_at, as: :admin
 
   mapping do
     indexes :id,               type: 'string',  index: :not_analyzed
@@ -64,11 +64,11 @@ class Mix
     end
   end
 
-  set_callback :save,   :before, :update_counter_cache, :if => :mix_collection_id_changed?
+  set_callback :save,   :before, :update_counter_cache, if: :mix_collection_id_changed?
   set_callback :save,   :before, :update_popularity_count
 
   # Called after cause we need acces to them by there id's in delayed_job
-  set_callback :save,   :after, :fetch_soundcloud_data, :if => :sc_url_changed?
+  set_callback :save,   :after, :fetch_soundcloud_data, if: :sc_url_changed?
   set_callback :create, :after, :generate_short_url
 
   class << self
@@ -76,13 +76,13 @@ class Mix
       page(options[:page]).per(options[:per_page])
     end
 
-    def elastic_search(options={}, role=:default)
-      tire.search( load: true, page: options[:page], per_page: (options[:per_page] || 12) ) do
+    def elastic_search(options = {}, role = :default)
+      tire.search(load: true, page: options[:page], per_page: (options[:per_page] || 12)) do
         query do
-          string options[:query], default_operator: "AND"
+          string options[:query], default_operator: 'AND'
         end
 
-        filter :missing, { field: :processed_at } if role.equal? :default
+        filter :missing, field: :processed_at if role.equal? :default
 
         sort do
           by :popluarity_count, 'desc'
@@ -116,20 +116,20 @@ class Mix
       debuted_at: debuted_at.to_i,
       created_at: created_at.to_i,
       duration: duration,
-      is_favorite: options[:user].present? ? !options[:user].favorites.where(mix_id: self.id).empty? : false,
+      is_favorite: options[:user].present? ? !options[:user].favorites.where(mix_id: id).empty? : false,
       short_url: short_url
     }
   end
 
-  def as_json(options={})
+  def as_json(options = {})
     payload options
   end
 
   def title
-    "#{mix_collection.name}#{!caption.blank? ? " - " + caption : ""} with #{performers.collect {|p| p.name }.join(', ')}"
+    "#{mix_collection.name}#{!caption.blank? ? ' - ' + caption : ''} with #{performers.collect(&:name).join(', ')}"
   end
 
-  alias :original_mix_collection= :mix_collection=
+  alias original_mix_collection= mix_collection=
   def mix_collection=(mix_collection)
     if mix_collection.is_a? Hash
       mix_collection_id = mix_collection['id']
@@ -138,7 +138,7 @@ class Mix
     end
   end
 
-  alias :original_performers= :performers=
+  alias original_performers= performers=
   def performers=(performers)
     # Are the objects returned from ElasticSearch?
     if performers.all? { |p| p.is_a? Hash }
@@ -149,7 +149,7 @@ class Mix
   end
 
   def performer_tokens=(ids)
-    ids = ids.split(",")
+    ids = ids.split(',')
 
     # Create the new performer if the ID is not an integer
     ids.collect! do |id|
@@ -157,7 +157,7 @@ class Mix
         id
       else
         id.strip!
-        per = Performer.first(conditions: { name: Regexp.new(id, true) } )
+        per = Performer.first(conditions: { name: Regexp.new(id, true) })
         per.nil? ? Performer.create!(name: id).id : per.id
       end
     end
@@ -166,45 +166,46 @@ class Mix
   end
 
   def played!
-    self.inc(:play_count, 1)
-    self.save
+    inc(:play_count, 1)
+    save
   end
 
   def streamable_url
-    self.sc_stream_url =~ /\?/ ? "#{self.sc_stream_url}&client_id=#{ENV['SOUNDCLOUD_CLIENT_ID']}" : "#{self.sc_stream_url}?client_id=#{ENV['SOUNDCLOUD_CLIENT_ID']}"
+    sc_stream_url =~ /\?/ ? "#{sc_stream_url}&client_id=#{ENV['SOUNDCLOUD_CLIENT_ID']}" : "#{sc_stream_url}?client_id=#{ENV['SOUNDCLOUD_CLIENT_ID']}"
   end
 
-  def absolute_url(host=HOST)
+  def absolute_url(host = HOST)
     "http://#{host}/m/#{id}"
   end
 
   def generate_short_url
     Delayed::Job.enqueue(
-      ShortenURLJob.new(self.class, self.id, :short_url, self.absolute_url),
+      ShortenURLJob.new(self.class, id, :short_url, absolute_url),
       queue: 'short_url'
     )
   end
 
   def processed?
-    self.processed_at.present?
+    processed_at.present?
   end
 
   def fetch_soundcloud_data
-    Delayed::Job.enqueue SoundcloudMixDataJob.new(self.id)
+    Delayed::Job.enqueue SoundcloudMixDataJob.new(id)
   end
 
   protected
-  def update_counter_cache
-    new_mc = MixCollection.find self.mix_collection_id
-    new_mc.inc(:mixes_count, 1);
 
-    if self.mix_collection_id_was.present?
-      old_mc = MixCollection.find self.mix_collection_id_was
-      old_mc.inc(:mixes_count, -1);
+  def update_counter_cache
+    new_mc = MixCollection.find mix_collection_id
+    new_mc.inc(:mixes_count, 1)
+
+    if mix_collection_id_was.present?
+      old_mc = MixCollection.find mix_collection_id_was
+      old_mc.inc(:mixes_count, -1)
     end
   end
 
   def update_popularity_count
-    self.popluarity_count = self.favorites.count + self.play_count
+    self.popluarity_count = favorites.count + play_count
   end
 end

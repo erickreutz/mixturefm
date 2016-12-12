@@ -1,7 +1,7 @@
 class Api::V0::UsersController < Api::BaseController
-	def create
+  def create
     @graph = Koala::Facebook::API.new(params[:access_token])
-    profile = @graph.get_object("me")
+    profile = @graph.get_object('me')
 
     auth = {
       'provider' => 'facebook',
@@ -13,7 +13,7 @@ class Api::V0::UsersController < Api::BaseController
       }
     }
 
-		user = User.first(conditions: { provider: auth['provider'], uid: auth["uid"] }) || User.create_with_omniauth(auth)
-		render json: user
-	end
+    user = User.first(conditions: { provider: auth['provider'], uid: auth['uid'] }) || User.create_with_omniauth(auth)
+    render json: user
+  end
 end

@@ -11,11 +11,11 @@ class MixCollection
 
   has_many :mixes
 
-  validates_presence_of :name, message: "cannot be blank."
-  validates_uniqueness_of :name, message: "is already taken."
+  validates_presence_of :name, message: 'cannot be blank.'
+  validates_uniqueness_of :name, message: 'is already taken.'
 
   # Do this later.
-  attr_accessible :name, as: [ :default, :admin ]
+  attr_accessible :name, as: [:default, :admin]
 
   class << self
     def popular
@@ -28,21 +28,21 @@ class MixCollection
   end
 
   def years
-    self.mixes.only(:debuted_at)
-      .order_by(:debuted_at, :desc)
-      .collect { |m| m.debuted_at.year }.uniq
+    mixes.only(:debuted_at)
+         .order_by(:debuted_at, :desc)
+         .collect { |m| m.debuted_at.year }.uniq
   end
 
   def payload
-  	{
+    {
       id: id,
-  		name: name,
+      name: name,
       slug: slug,
-  		mix_count: mixes_count
-  	}
+      mix_count: mixes_count
+    }
   end
 
-  def as_json(options={})
-  	payload
+  def as_json(_options = {})
+    payload
   end
 end

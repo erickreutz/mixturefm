@@ -2,8 +2,7 @@ Mixture::Application.routes.draw do
   constraints subdomain: 'api' do
     root to: 'application#render_not_found'
 
-    namespace :v0, :module => 'api/v0' do
-
+    namespace :v0, module: 'api/v0' do
       # Mixes
       resources :mixes, only: [:create, :show, :update] do
         collection do
@@ -41,7 +40,7 @@ Mixture::Application.routes.draw do
 
       # Performers
       resources :performers, only: [:index, :show] do
-        get 'search', :action => :search, :on => :collection
+        get 'search', action: :search, on: :collection
 
         resources :mixes, only: [:index] do
           get 'page/:page', action: :index, on: :collection
@@ -64,7 +63,6 @@ Mixture::Application.routes.draw do
         end
       end
     end
-
   end
 
   namespace :admin do
